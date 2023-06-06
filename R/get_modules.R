@@ -4,6 +4,7 @@
 #'
 #' @param canvas An object containing the Canvas API key and base URL, obtained through the `canvas_authenticate` function.
 #' @param course_id The ID of the course for which to fetch the modules.
+#' @param per_page The number of entries to show
 #'
 #' @return A list of modules within the specified course.
 #' @export
