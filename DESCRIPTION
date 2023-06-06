@@ -1,6 +1,6 @@
 Package: vvcanvas
 Title: Canvas LMS API Integration for R
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
