@@ -1,0 +1,13 @@
+Package: vvcanvas
+Title: Canvas LMS API Integration for R
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: The vvcanvas package allows R users to interact with the Canvas Learning MAnagement System (LMS) API. It provides a set of functions to access and manipulate course data, assignments, grades, users, and other resources available through the Canvas API.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    magrittr
