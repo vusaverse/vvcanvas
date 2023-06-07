@@ -18,4 +18,5 @@ Imports:
     purrr,
     rlang,
     stringr,
+    tidyr,
     utils
