@@ -25,6 +25,9 @@ get_course_pages <- function(canvas, course_id, per_page = 100) {
   pages <- httr::content(response, "text", encoding = "UTF-8") %>%
     jsonlite::fromJSON(flatten = TRUE)
 
+  pages <- pages %>%
+    dplyr::mutate(page_body = purrr::map_chr(page_id, ~get_page_content(canvas, course_id, .x)))
+
   # Return the list of pages
   return(pages)
 }
