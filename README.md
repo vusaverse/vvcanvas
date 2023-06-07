@@ -4,12 +4,13 @@ The `vvcanvas` package is an R library that provides a convenient interface to i
 
 ## Installation
 
-You can install the `vvcanvas` package from CRAN using the following command:
+You can install the `vvcanvas` package from GitHub using the following command:
 
 ```
 devtools::install_github("vusaverse/vvcanvas")
 ```
 
+The aim is to have the package hosted on CRAN in the near future.
 
 ## Getting Started
 
