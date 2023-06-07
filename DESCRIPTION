@@ -15,4 +15,5 @@ Imports:
     httr,
     jsonlite,
     magrittr,
-    purrr
+    purrr,
+    rlang

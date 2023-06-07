@@ -9,6 +9,7 @@
 #' @return A list of pages within the specified course.
 #' @export
 #'
+#' @importFrom rlang .data
 get_course_pages <- function(canvas, course_id, per_page = 100) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/pages?per_page=", per_page)
@@ -26,7 +27,7 @@ get_course_pages <- function(canvas, course_id, per_page = 100) {
     jsonlite::fromJSON(flatten = TRUE)
 
   pages <- pages %>%
-    dplyr::mutate(page_body = purrr::map_chr(page_id, ~get_page_content(canvas, course_id, .x)))
+    dplyr::mutate(page_body = purrr::map_chr(.data$page_id, ~get_page_content(canvas, course_id, .x)))
 
   # Return the list of pages
   return(pages)
