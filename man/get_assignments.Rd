@@ -17,11 +17,3 @@ A list of assignments retrieved from the Canvas LMS API.
 \description{
 Fetches a list of assignments within a specific course from the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch the list of assignments for a specific course
-course_id <- 12345
-assignments <- get_assignments(canvas, course_id)
-}

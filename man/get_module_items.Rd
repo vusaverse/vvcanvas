@@ -19,12 +19,3 @@ A list of items within the specified module.
 \description{
 This function retrieves the items within a specific module of a course in the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch the items of a specific module
-course_id <- 12345
-module_id <- 67890
-items <- get_module_items(canvas, course_id, module_id)
-}

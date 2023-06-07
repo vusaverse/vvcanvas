@@ -8,13 +8,6 @@
 #' @return A list of assignments retrieved from the Canvas LMS API.
 #' @export
 #'
-#' @examples
-#' # Authenticate with the Canvas LMS API
-#' canvas <- canvas_authenticate(api_key, base_url)
-#'
-#' # Fetch the list of assignments for a specific course
-#' course_id <- 12345
-#' assignments <- get_assignments(canvas, course_id)
 get_assignments <- function(canvas, course_id) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/assignments")

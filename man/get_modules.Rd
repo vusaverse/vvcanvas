@@ -19,11 +19,3 @@ A list of modules within the specified course.
 \description{
 This function retrieves the modules within a specific course in the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch the modules of a specific course
-course_id <- 12345
-modules <- get_modules(canvas, course_id)
-}

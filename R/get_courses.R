@@ -8,12 +8,6 @@
 #' @return A list of courses retrieved from the Canvas LMS API.
 #' @export
 #'
-#' @examples
-#' # Authenticate with the Canvas LMS API
-#' canvas <- canvas_authenticate(api_key, base_url)
-#'
-#' # Fetch all courses
-#' courses <- get_courses(canvas)
 get_courses <- function(canvas, per_page = 100) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses?per_page=", per_page)

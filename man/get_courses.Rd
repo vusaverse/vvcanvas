@@ -17,10 +17,3 @@ A list of courses retrieved from the Canvas LMS API.
 \description{
 Retrieves a list of courses from the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch all courses
-courses <- get_courses(canvas)
-}

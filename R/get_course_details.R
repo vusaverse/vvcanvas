@@ -8,16 +8,6 @@
 #' @return A dataframe containing the detailed information about the course.
 #' @export
 #'
-#' @examples
-#' # Authenticate with the Canvas LMS API
-#' canvas <- canvas_authenticate(api_key, base_url)
-#'
-#' # Fetch the details of a specific course
-#' course_id <- 12345
-#' course_details <- get_course_details(canvas, course_id)
-#'
-#' # Print the course details
-#' print(course_details)
 get_course_details <- function(canvas, course_id) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id)

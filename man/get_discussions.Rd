@@ -19,11 +19,3 @@ A list of discussion topics within the specified course.
 \description{
 This function retrieves the discussion topics within a specific course in the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch the discussion topics of a specific course
-course_id <- 12345
-discussions <- get_discussions(canvas, course_id)
-}

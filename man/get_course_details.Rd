@@ -17,14 +17,3 @@ A dataframe containing the detailed information about the course.
 \description{
 Retrieves detailed information about a specific course from the Canvas LMS API.
 }
-\examples{
-# Authenticate with the Canvas LMS API
-canvas <- canvas_authenticate(api_key, base_url)
-
-# Fetch the details of a specific course
-course_id <- 12345
-course_details <- get_course_details(canvas, course_id)
-
-# Print the course details
-print(course_details)
-}

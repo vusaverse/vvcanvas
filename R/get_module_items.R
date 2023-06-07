@@ -9,14 +9,6 @@
 #' @return A list of items within the specified module.
 #' @export
 #'
-#' @examples
-#' # Authenticate with the Canvas LMS API
-#' canvas <- canvas_authenticate(api_key, base_url)
-#'
-#' # Fetch the items of a specific module
-#' course_id <- 12345
-#' module_id <- 67890
-#' items <- get_module_items(canvas, course_id, module_id)
 get_module_items <- function(canvas, course_id, module_id) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/modules/", module_id, "/items")
