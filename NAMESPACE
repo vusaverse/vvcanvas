@@ -2,6 +2,7 @@
 
 export("%>%")
 export(canvas_authenticate)
+export(create_course_datalake)
 export(download_course_file)
 export(get_all_courses)
 export(get_assignment_details)
