@@ -9,13 +9,13 @@
 #' @return The path of the downloaded file.
 #' @export
 #' @examples
+#' \dontrun{
 #' # Download a file from a given URL
-#' # canvas <- canvas_authenticate(api_key, base_url)
-#' # file_url <- "https://example.com/file.pdf"
-#' # download_path <- "path/to/save/file.pdf"
-#' # file_path <- download_course_file(canvas, file_url, download_path)
-#' # cat("File downloaded to:", file_path, "\n")
-#'
+#' canvas <- canvas_authenticate(api_key, base_url)
+#' file_url <- "https://example.com/file.pdf"
+#' download_path <- "path/to/save/file.pdf"
+#' file_path <- download_course_file(canvas, file_url, download_path)
+#' }
 #' @importFrom utils download.file
 download_course_file <- function(canvas, file_url, download_path) {
   # Get the filename from the URL

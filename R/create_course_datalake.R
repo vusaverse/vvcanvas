@@ -6,6 +6,7 @@
 #' @param canvas An object containing the Canvas API key and base URL, obtained through the `canvas_authenticate` function.
 #' @param course_id The ID of the course for which to create the data lake.
 #' @param storage_location The path to the storage location where the data files will be saved.
+#' @return NULL
 #'
 #' @export
 #' @note This function retrieves data from various endpoints. Access to certain endpoints may require specific roles.
@@ -83,7 +84,7 @@ create_course_datalake <- function(canvas, course_id, storage_location) {
 
     # Check the response status code
     if (httr::status_code(response) != 200) {
-      cat(paste("Failed to retrieve data from endpoint:", endpoint), "\n")
+      message(paste("Failed to retrieve data from endpoint:", endpoint), "\n")
       next
     }
 
@@ -97,8 +98,8 @@ create_course_datalake <- function(canvas, course_id, storage_location) {
     # Write the data to file in JSON format
     jsonlite::write_json(data, file_path)
 
-    cat(paste("Data from endpoint", endpoint, "saved to", file_path), "\n")
+    message(paste("Data from endpoint", endpoint, "saved to", file_path), "\n")
   }
 
-  cat("Course data lake created successfully!\n")
+  message("Course data lake created successfully!\n")
 }

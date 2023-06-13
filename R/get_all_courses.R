@@ -36,7 +36,7 @@ get_all_courses <- function(canvas, per_page = 100) {
     all_courses <- dplyr::bind_rows(all_courses, courses)
 
     # Print progress message
-    cat("Fetched", nrow(courses), "courses from page", page, "\n")
+    message("Fetched", nrow(courses), "courses from page", page, "\n")
 
     # Increment the page counter
     page <- page + 1
