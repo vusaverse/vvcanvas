@@ -17,3 +17,10 @@ A list containing the authenticated 'api_key' and 'base_url'.
 \description{
 Handles authentication with the Canvas LMS API using the provided API key and base URL.
 }
+\examples{
+# Authenticate with the Canvas LMS API
+# api_key <- "your_api_key"
+# base_url <- "https://canvas.example.com"
+# canvas <- canvas_authenticate(api_key, base_url)
+
+}

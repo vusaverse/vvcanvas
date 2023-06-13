@@ -19,3 +19,12 @@ The path of the downloaded file.
 \description{
 This function downloads a file from a specified URL and saves it locally.
 }
+\examples{
+# Download a file from a given URL
+# canvas <- canvas_authenticate(api_key, base_url)
+# file_url <- "https://example.com/file.pdf"
+# download_path <- "path/to/save/file.pdf"
+# file_path <- download_course_file(canvas, file_url, download_path)
+# cat("File downloaded to:", file_path, "\n")
+
+}

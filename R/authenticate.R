@@ -7,6 +7,11 @@
 #'
 #' @return A list containing the authenticated 'api_key' and 'base_url'.
 #' @export
+#' @examples
+#' # Authenticate with the Canvas LMS API
+#' # api_key <- "your_api_key"
+#' # base_url <- "https://canvas.example.com"
+#' # canvas <- canvas_authenticate(api_key, base_url)
 #'
 canvas_authenticate <- function(api_key, base_url) {
   # Create a canvas object to store the API key and base URL
