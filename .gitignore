@@ -47,3 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+inst/doc
+
+#
+todo.R
+prep.R

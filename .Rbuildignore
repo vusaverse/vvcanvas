@@ -2,3 +2,5 @@
 .Rproj$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+prep.R$
+todo.R$
