@@ -6,7 +6,7 @@
 #' @param canvas An object containing the Canvas API key and base URL, obtained through the `canvas_authenticate` function.
 #' @param course_id The ID of the course for which to create the data lake.
 #' @param storage_location The path to the storage location where the data files will be saved.
-#' @return NULL
+#' @return NULL.
 #'
 #' @export
 #' @note This function retrieves data from various endpoints. Access to certain endpoints may require specific roles.

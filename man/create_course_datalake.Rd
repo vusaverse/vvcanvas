@@ -13,6 +13,9 @@ create_course_datalake(canvas, course_id, storage_location)
 
 \item{storage_location}{The path to the storage location where the data files will be saved.}
 }
+\value{
+NULL.
+}
 \description{
 This function retrieves data from various endpoints for a specific course in the Canvas LMS API
 and stores the data as JSON files in a specified storage location.
