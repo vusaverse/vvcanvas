@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 prep.R$
 todo.R$
+^\.github$
