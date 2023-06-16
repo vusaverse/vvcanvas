@@ -72,13 +72,15 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="vvcanvas-package">vvcanvas Package<a class="anchor" aria-label="anchor" href="#vvcanvas-package"></a>
 </h1></div>
+<p><a href="https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></p>
 <p>The <code>vvcanvas</code> package is an R library that provides a convenient interface to interact with the Canvas Learning Management System (LMS) API. It allows users to authenticate, retrieve course information, fetch specific details, and perform various operations within the Canvas LMS.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the <code>vvcanvas</code> package from GitHub using the following command:</p>
 <pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vusaverse/vvcanvas"</span><span class="op">)</span></span></code></pre>
-<p>The aim is to have the package hosted on CRAN in the near future.</p>
+<p>It is also possible to install from CRAN:</p>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"vvcanvas"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
@@ -88,7 +90,7 @@
 <li><p>Acquire an API key from your Canvas LMS instance. You may need to consult your Canvas administrator or refer to the Canvas API documentation for instructions on obtaining an API key.</p></li>
 <li><p>Once you have the API key, load the <code>vvcanvas</code> library and use the <code>canvas_authenticate</code> function to authenticate with the Canvas LMS API. Provide the API key and the base URL of your Canvas instance as parameters. Here’s an example:</p></li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vusaverse/vvcanvas" class="external-link">vvcanvas</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Replace the placeholders with your API key and base URL</span></span>
@@ -99,7 +101,7 @@
 <span><span class="va">canvas</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/canvas_authenticate.html">canvas_authenticate</a></span><span class="op">(</span><span class="va">api_key</span>, <span class="va">base_url</span><span class="op">)</span></span></code></pre></div>
 <p>With the authentication step completed, you can now utilize the various functions provided by the <code>vvcanvas</code> package to interact with the Canvas LMS.</p>
 <p>In order to retrieve a dataframe with all courses you can use the following function:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Pass the canvas object to the get_courses function</span></span>
 <span><span class="va">courses</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_courses.html">get_courses</a></span><span class="op">(</span><span class="va">canvas</span><span class="op">)</span></span></code></pre></div>
 </div>
