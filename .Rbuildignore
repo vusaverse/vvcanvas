@@ -1,4 +1,5 @@
 ^LICENSE\.md$
+^TODO\.md$
 .Rproj$
 ^.*\.Rproj$
 ^\.Rproj\.user$
