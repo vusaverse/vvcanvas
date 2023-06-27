@@ -229,7 +229,7 @@
 - [ ]           Delete an assignment              AssignmentsController#destroy       ; 
     DELETE /api/v1/courses/:course_id/assignments/:id
   
-- [ ]           List assignments              AssignmentsApiController#index       ; 
+- [x]           List assignments              AssignmentsApiController#index       ; 
     GET /api/v1/courses/:course_id/assignments
   
 - [ ]           List assignments              AssignmentsApiController#index       ; 
@@ -736,7 +736,7 @@
 - [ ]           Set extensions for student quiz submissions              Quizzes::CourseQuizExtensionsController#create       ; 
     POST /api/v1/courses/:course_id/quiz_extensions
   
-- [ ]           List your courses              CoursesController#index       ; 
+- [x]           List your courses              CoursesController#index       ; 
     GET /api/v1/courses
   
 - [ ]           List courses for a user              CoursesController#user_index       ; 
@@ -751,7 +751,7 @@
 - [ ]           Upload a file              CoursesController#create_file       ; 
     POST /api/v1/courses/:course_id/files
   
-- [ ]           List students              CoursesController#students       ; 
+- [x]           List students              CoursesController#students       ; 
     GET /api/v1/courses/:course_id/students
   
 - [ ]           List users in course              CoursesController#users       ; 
@@ -850,7 +850,7 @@
 - [ ]           Bulk update column data              CustomGradebookColumnDataApiController#bulk_update       ; 
     PUT /api/v1/courses/:course_id/custom_gradebook_column_data
   
-- [ ]           List discussion topics              DiscussionTopicsController#index       ; 
+- [x]           List discussion topics              DiscussionTopicsController#index       ; 
     GET /api/v1/courses/:course_id/discussion_topics
   
 - [ ]           List discussion topics              DiscussionTopicsController#index       ; 
@@ -1009,7 +1009,7 @@
 - [ ]           Retrieve enrollment term              TermsApiController#show       ; 
     GET /api/v1/accounts/:account_id/terms/:id
   
-- [ ]           List enrollments              EnrollmentsApiController#index       ; 
+- [x]           List enrollments              EnrollmentsApiController#index       ; 
     GET /api/v1/courses/:course_id/enrollments
   
 - [ ]           List enrollments              EnrollmentsApiController#index       ; 
@@ -1207,7 +1207,7 @@
 - [ ]           Get quota information              FilesController#api_quota       ; 
     GET /api/v1/users/:user_id/files/quota
   
-- [ ]           List files              FilesController#api_index       ; 
+- [x]           List files              FilesController#api_index       ; 
     GET /api/v1/courses/:course_id/files
   
 - [ ]           List files              FilesController#api_index       ; 
@@ -1255,7 +1255,7 @@
 - [ ]           List folders              FoldersController#api_index       ; 
     GET /api/v1/folders/:id/folders
   
-- [ ]           List all folders              FoldersController#list_all_folders       ; 
+- [x]           List all folders              FoldersController#list_all_folders       ; 
     GET /api/v1/courses/:course_id/folders
   
 - [ ]           List all folders              FoldersController#list_all_folders       ; 
@@ -1663,7 +1663,7 @@
 - [ ]           Show provisional grade status for a student              AnonymousProvisionalGradesController#status       ; 
     GET /api/v1/courses/:course_id/assignments/:assignment_id/anonymous_provisional_grades/status
   
-- [ ]           List modules              ContextModulesApiController#index       ; 
+- [x]           List modules              ContextModulesApiController#index       ; 
     GET /api/v1/courses/:course_id/modules
   
 - [ ]           Show module              ContextModulesApiController#show       ; 
@@ -1681,7 +1681,7 @@
 - [ ]           Re-lock module progressions              ContextModulesApiController#relock       ; 
     PUT /api/v1/courses/:course_id/modules/:id/relock
   
-- [ ]           List module items              ContextModuleItemsApiController#index       ; 
+- [x]           List module items              ContextModuleItemsApiController#index       ; 
     GET /api/v1/courses/:course_id/modules/:module_id/items
   
 - [ ]           Show module item              ContextModuleItemsApiController#show       ; 
@@ -1735,7 +1735,7 @@
 - [ ]           Get a new quiz           ; 
     GET /api/quiz/v1/courses/:course_id/quizzes/:assignment_id
   
-- [ ]           List new quizzes           ; 
+- [x]           List new quizzes           ; 
     GET /api/quiz/v1/courses/:course_id/quizzes
   
 - [ ]           Create a new quiz           ; 
@@ -1951,7 +1951,7 @@
 - [ ]           Update/create front page              WikiPagesApiController#update_front_page       ; 
     PUT /api/v1/groups/:group_id/front_page
   
-- [ ]           List pages              WikiPagesApiController#index       ; 
+- [x]           List pages              WikiPagesApiController#index       ; 
     GET /api/v1/courses/:course_id/pages
   
 - [ ]           List pages              WikiPagesApiController#index       ; 
@@ -2365,10 +2365,10 @@
 - [ ]           Find recipients              SearchController#recipients       ; 
     GET /api/v1/search/recipients
   
-- [ ]           List all courses              SearchController#all_courses       ; 
+- [x]           List all courses              SearchController#all_courses       ; 
     GET /api/v1/search/all_courses
   
-- [ ]           List course sections              SectionsController#index       ; 
+- [x]           List course sections              SectionsController#index       ; 
     GET /api/v1/courses/:course_id/sections
   
 - [ ]           Create course section              SectionsController#create       ; 
