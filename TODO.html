@@ -124,7 +124,7 @@
 <li><p><input type="checkbox" disabled>Edit an Assignment Group AssignmentGroupsApiController#update ; PUT /api/v1/courses/:course_id/assignment_groups/:assignment_group_id</p></li>
 <li><p><input type="checkbox" disabled>Destroy an Assignment Group AssignmentGroupsApiController#destroy ; DELETE /api/v1/courses/:course_id/assignment_groups/:assignment_group_id</p></li>
 <li><p><input type="checkbox" disabled>Delete an assignment AssignmentsController#destroy ; DELETE /api/v1/courses/:course_id/assignments/:id</p></li>
-<li><p><input type="checkbox" disabled>List assignments AssignmentsApiController#index ; GET /api/v1/courses/:course_id/assignments</p></li>
+<li><p><input type="checkbox" disabled checked>List assignments AssignmentsApiController#index ; GET /api/v1/courses/:course_id/assignments</p></li>
 <li><p><input type="checkbox" disabled>List assignments AssignmentsApiController#index ; GET /api/v1/courses/:course_id/assignment_groups/:assignment_group_id/assignments</p></li>
 <li><p><input type="checkbox" disabled>List assignments for user AssignmentsApiController#user_index ; GET /api/v1/users/:user_id/courses/:course_id/assignments</p></li>
 <li><p><input type="checkbox" disabled>Duplicate assignnment AssignmentsApiController#duplicate ; POST /api/v1/courses/:course_id/assignments/:assignment_id/duplicate</p></li>
@@ -293,12 +293,12 @@
 <li><p><input type="checkbox" disabled>Update a Course pace CoursePacesController#update ; PUT /api/v1/courses/:course_id/course_pacing/:id</p></li>
 <li><p><input type="checkbox" disabled>Delete a Course pace CoursePacesController#destroy ; DELETE /api/v1/courses/:course_id/course_pacing/:id</p></li>
 <li><p><input type="checkbox" disabled>Set extensions for student quiz submissions Quizzes::CourseQuizExtensionsController#create ; POST /api/v1/courses/:course_id/quiz_extensions</p></li>
-<li><p><input type="checkbox" disabled>List your courses CoursesController#index ; GET /api/v1/courses</p></li>
+<li><p><input type="checkbox" disabled checked>List your courses CoursesController#index ; GET /api/v1/courses</p></li>
 <li><p><input type="checkbox" disabled>List courses for a user CoursesController#user_index ; GET /api/v1/users/:user_id/courses</p></li>
 <li><p><input type="checkbox" disabled>Get user progress CoursesController#user_progress ; GET /api/v1/courses/:course_id/users/:user_id/progress</p></li>
 <li><p><input type="checkbox" disabled>Create a new course CoursesController#create ; POST /api/v1/accounts/:account_id/courses</p></li>
 <li><p><input type="checkbox" disabled>Upload a file CoursesController#create_file ; POST /api/v1/courses/:course_id/files</p></li>
-<li><p><input type="checkbox" disabled>List students CoursesController#students ; GET /api/v1/courses/:course_id/students</p></li>
+<li><p><input type="checkbox" disabled checked>List students CoursesController#students ; GET /api/v1/courses/:course_id/students</p></li>
 <li><p><input type="checkbox" disabled>List users in course CoursesController#users ; GET /api/v1/courses/:course_id/users</p></li>
 <li><p><input type="checkbox" disabled>List users in course CoursesController#users ; GET /api/v1/courses/:course_id/search_users</p></li>
 <li><p><input type="checkbox" disabled>List recently logged in students CoursesController#recent_students ; GET /api/v1/courses/:course_id/recent_students</p></li>
@@ -331,7 +331,7 @@
 <li><p><input type="checkbox" disabled>List entries for a column CustomGradebookColumnDataApiController#index ; GET /api/v1/courses/:course_id/custom_gradebook_columns/:id/data</p></li>
 <li><p><input type="checkbox" disabled>Update column data CustomGradebookColumnDataApiController#update ; PUT /api/v1/courses/:course_id/custom_gradebook_columns/:id/data/:user_id</p></li>
 <li><p><input type="checkbox" disabled>Bulk update column data CustomGradebookColumnDataApiController#bulk_update ; PUT /api/v1/courses/:course_id/custom_gradebook_column_data</p></li>
-<li><p><input type="checkbox" disabled>List discussion topics DiscussionTopicsController#index ; GET /api/v1/courses/:course_id/discussion_topics</p></li>
+<li><p><input type="checkbox" disabled checked>List discussion topics DiscussionTopicsController#index ; GET /api/v1/courses/:course_id/discussion_topics</p></li>
 <li><p><input type="checkbox" disabled>List discussion topics DiscussionTopicsController#index ; GET /api/v1/groups/:group_id/discussion_topics</p></li>
 <li><p><input type="checkbox" disabled>Create a new discussion topic DiscussionTopicsController#create ; POST /api/v1/courses/:course_id/discussion_topics</p></li>
 <li><p><input type="checkbox" disabled>Create a new discussion topic DiscussionTopicsController#create ; POST /api/v1/groups/:group_id/discussion_topics</p></li>
@@ -384,7 +384,7 @@
 <li><p><input type="checkbox" disabled>Delete enrollment term TermsController#destroy ; DELETE /api/v1/accounts/:account_id/terms/:id</p></li>
 <li><p><input type="checkbox" disabled>List enrollment terms TermsApiController#index ; GET /api/v1/accounts/:account_id/terms</p></li>
 <li><p><input type="checkbox" disabled>Retrieve enrollment term TermsApiController#show ; GET /api/v1/accounts/:account_id/terms/:id</p></li>
-<li><p><input type="checkbox" disabled>List enrollments EnrollmentsApiController#index ; GET /api/v1/courses/:course_id/enrollments</p></li>
+<li><p><input type="checkbox" disabled checked>List enrollments EnrollmentsApiController#index ; GET /api/v1/courses/:course_id/enrollments</p></li>
 <li><p><input type="checkbox" disabled>List enrollments EnrollmentsApiController#index ; GET /api/v1/sections/:section_id/enrollments</p></li>
 <li><p><input type="checkbox" disabled>List enrollments EnrollmentsApiController#index ; GET /api/v1/users/:user_id/enrollments</p></li>
 <li><p><input type="checkbox" disabled>Enrollment by ID EnrollmentsApiController#show ; GET /api/v1/accounts/:account_id/enrollments/:id</p></li>
@@ -450,7 +450,7 @@
 <li><p><input type="checkbox" disabled>Get quota information FilesController#api_quota ; GET /api/v1/courses/:course_id/files/quota</p></li>
 <li><p><input type="checkbox" disabled>Get quota information FilesController#api_quota ; GET /api/v1/groups/:group_id/files/quota</p></li>
 <li><p><input type="checkbox" disabled>Get quota information FilesController#api_quota ; GET /api/v1/users/:user_id/files/quota</p></li>
-<li><p><input type="checkbox" disabled>List files FilesController#api_index ; GET /api/v1/courses/:course_id/files</p></li>
+<li><p><input type="checkbox" disabled checked>List files FilesController#api_index ; GET /api/v1/courses/:course_id/files</p></li>
 <li><p><input type="checkbox" disabled>List files FilesController#api_index ; GET /api/v1/users/:user_id/files</p></li>
 <li><p><input type="checkbox" disabled>List files FilesController#api_index ; GET /api/v1/groups/:group_id/files</p></li>
 <li><p><input type="checkbox" disabled>List files FilesController#api_index ; GET /api/v1/folders/:id/files</p></li>
@@ -466,7 +466,7 @@
 <li><p><input type="checkbox" disabled>Get icon metadata FilesController#icon_metadata ; GET /api/v1/files/:id/icon_metadata</p></li>
 <li><p><input type="checkbox" disabled>Reset link verifier FilesController#reset_verifier ; POST /api/v1/files/:id/reset_verifier</p></li>
 <li><p><input type="checkbox" disabled>List folders FoldersController#api_index ; GET /api/v1/folders/:id/folders</p></li>
-<li><p><input type="checkbox" disabled>List all folders FoldersController#list_all_folders ; GET /api/v1/courses/:course_id/folders</p></li>
+<li><p><input type="checkbox" disabled checked>List all folders FoldersController#list_all_folders ; GET /api/v1/courses/:course_id/folders</p></li>
 <li><p><input type="checkbox" disabled>List all folders FoldersController#list_all_folders ; GET /api/v1/users/:user_id/folders</p></li>
 <li><p><input type="checkbox" disabled>List all folders FoldersController#list_all_folders ; GET /api/v1/groups/:group_id/folders</p></li>
 <li><p><input type="checkbox" disabled>Resolve path FoldersController#resolve_path ; GET /api/v1/courses/:course_id/folders/by_path/*full_path</p></li>
@@ -602,13 +602,13 @@
 <li><p><input type="checkbox" disabled>Select provisional grade ProvisionalGradesController#select ; PUT /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/:provisional_grade_id/select</p></li>
 <li><p><input type="checkbox" disabled>Publish provisional grades for an assignment ProvisionalGradesController#publish ; POST /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/publish</p></li>
 <li><p><input type="checkbox" disabled>Show provisional grade status for a student AnonymousProvisionalGradesController#status ; GET /api/v1/courses/:course_id/assignments/:assignment_id/anonymous_provisional_grades/status</p></li>
-<li><p><input type="checkbox" disabled>List modules ContextModulesApiController#index ; GET /api/v1/courses/:course_id/modules</p></li>
+<li><p><input type="checkbox" disabled checked>List modules ContextModulesApiController#index ; GET /api/v1/courses/:course_id/modules</p></li>
 <li><p><input type="checkbox" disabled>Show module ContextModulesApiController#show ; GET /api/v1/courses/:course_id/modules/:id</p></li>
 <li><p><input type="checkbox" disabled>Create a module ContextModulesApiController#create ; POST /api/v1/courses/:course_id/modules</p></li>
 <li><p><input type="checkbox" disabled>Update a module ContextModulesApiController#update ; PUT /api/v1/courses/:course_id/modules/:id</p></li>
 <li><p><input type="checkbox" disabled>Delete module ContextModulesApiController#destroy ; DELETE /api/v1/courses/:course_id/modules/:id</p></li>
 <li><p><input type="checkbox" disabled>Re-lock module progressions ContextModulesApiController#relock ; PUT /api/v1/courses/:course_id/modules/:id/relock</p></li>
-<li><p><input type="checkbox" disabled>List module items ContextModuleItemsApiController#index ; GET /api/v1/courses/:course_id/modules/:module_id/items</p></li>
+<li><p><input type="checkbox" disabled checked>List module items ContextModuleItemsApiController#index ; GET /api/v1/courses/:course_id/modules/:module_id/items</p></li>
 <li><p><input type="checkbox" disabled>Show module item ContextModuleItemsApiController#show ; GET /api/v1/courses/:course_id/modules/:module_id/items/:id</p></li>
 <li><p><input type="checkbox" disabled>Create a module item ContextModuleItemsApiController#create ; POST /api/v1/courses/:course_id/modules/:module_id/items</p></li>
 <li><p><input type="checkbox" disabled>Update a module item ContextModuleItemsApiController#update ; PUT /api/v1/courses/:course_id/modules/:module_id/items/:id</p></li>
@@ -626,7 +626,7 @@
 <li><p><input type="checkbox" disabled>Delete a quiz item ; DELETE /api/quiz/v1/courses/:course_id/quizzes/:assignment_id/items/:item_id</p></li>
 <li><p><input type="checkbox" disabled>Get items media_upload_url ; GET /api/quiz/v1/courses/:course_id/quizzes/:assignment_id/items/media_upload_url</p></li>
 <li><p><input type="checkbox" disabled>Get a new quiz ; GET /api/quiz/v1/courses/:course_id/quizzes/:assignment_id</p></li>
-<li><p><input type="checkbox" disabled>List new quizzes ; GET /api/quiz/v1/courses/:course_id/quizzes</p></li>
+<li><p><input type="checkbox" disabled checked>List new quizzes ; GET /api/quiz/v1/courses/:course_id/quizzes</p></li>
 <li><p><input type="checkbox" disabled>Create a new quiz ; POST /api/quiz/v1/courses/:course_id/quizzes</p></li>
 <li><p><input type="checkbox" disabled>Update a single quiz ; PATCH /api/quiz/v1/courses/:course_id/quizzes/:assignment_id</p></li>
 <li><p><input type="checkbox" disabled>Delete a new quiz ; DELETE /api/quiz/v1/courses/:course_id/quizzes/:assignment_id</p></li>
@@ -698,7 +698,7 @@
 <li><p><input type="checkbox" disabled>Duplicate page WikiPagesApiController#duplicate ; POST /api/v1/courses/:course_id/pages/:url_or_id/duplicate</p></li>
 <li><p><input type="checkbox" disabled>Update/create front page WikiPagesApiController#update_front_page ; PUT /api/v1/courses/:course_id/front_page</p></li>
 <li><p><input type="checkbox" disabled>Update/create front page WikiPagesApiController#update_front_page ; PUT /api/v1/groups/:group_id/front_page</p></li>
-<li><p><input type="checkbox" disabled>List pages WikiPagesApiController#index ; GET /api/v1/courses/:course_id/pages</p></li>
+<li><p><input type="checkbox" disabled checked>List pages WikiPagesApiController#index ; GET /api/v1/courses/:course_id/pages</p></li>
 <li><p><input type="checkbox" disabled>List pages WikiPagesApiController#index ; GET /api/v1/groups/:group_id/pages</p></li>
 <li><p><input type="checkbox" disabled>Create page WikiPagesApiController#create ; POST /api/v1/courses/:course_id/pages</p></li>
 <li><p><input type="checkbox" disabled>Create page WikiPagesApiController#create ; POST /api/v1/groups/:group_id/pages</p></li>
@@ -836,8 +836,8 @@
 <li><p><input type="checkbox" disabled>Create a Score Lti::Ims::ScoresController#create ; POST /api/lti/courses/:course_id/line_items/:line_item_id/scores</p></li>
 <li><p><input type="checkbox" disabled>Find recipients SearchController#recipients ; GET /api/v1/conversations/find_recipients</p></li>
 <li><p><input type="checkbox" disabled>Find recipients SearchController#recipients ; GET /api/v1/search/recipients</p></li>
-<li><p><input type="checkbox" disabled>List all courses SearchController#all_courses ; GET /api/v1/search/all_courses</p></li>
-<li><p><input type="checkbox" disabled>List course sections SectionsController#index ; GET /api/v1/courses/:course_id/sections</p></li>
+<li><p><input type="checkbox" disabled checked>List all courses SearchController#all_courses ; GET /api/v1/search/all_courses</p></li>
+<li><p><input type="checkbox" disabled checked>List course sections SectionsController#index ; GET /api/v1/courses/:course_id/sections</p></li>
 <li><p><input type="checkbox" disabled>Create course section SectionsController#create ; POST /api/v1/courses/:course_id/sections</p></li>
 <li><p><input type="checkbox" disabled>Cross-list a Section SectionsController#crosslist ; POST /api/v1/sections/:id/crosslist/:new_course_id</p></li>
 <li><p><input type="checkbox" disabled>De-cross-list a Section SectionsController#uncrosslist ; DELETE /api/v1/sections/:id/crosslist</p></li>
