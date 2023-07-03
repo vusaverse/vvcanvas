@@ -856,7 +856,7 @@
 - [ ]           List discussion topics              DiscussionTopicsController#index       ; 
     GET /api/v1/groups/:group_id/discussion_topics
   
-- [ ]           Create a new discussion topic              DiscussionTopicsController#create       ; 
+- [x]           Create a new discussion topic              DiscussionTopicsController#create       ; 
     POST /api/v1/courses/:course_id/discussion_topics
   
 - [ ]           Create a new discussion topic              DiscussionTopicsController#create       ; 
