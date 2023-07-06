@@ -1,0 +1,78 @@
+---
+title: "Working with groups"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Working with groups}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# Introduction
+
+This vignette demonstrates how to retrieve group memberships in a course using the Canvas LMS API.
+
+# Step 1: List courses
+
+```{r setup}
+library(vvcanvas)
+
+
+# Specify the Canvas API authentication details
+canvas <- list(
+  api_key = "YOUR_API_KEY",
+  base_url = "https://your_canvas_instance/"
+)
+
+# Retrieve all courses
+courses <- get_courses(canvas)
+
+# Select a course (replace the index with the desired course)
+course_id <- course$id[1] ## the first course in courses
+
+```
+
+# Step 2: Retrieve all groups in the course
+
+```{r get_groups}
+# Retrieve all groups in the selected course
+groups <- get_course_groups(canvas, course_id)
+
+# Extract the group IDs
+group_ids <- groups$id
+
+```
+
+
+# Step 3: Retrieve group memberships 
+
+
+```{r get_members}
+
+# Retrieve group memberships using purrr
+memberships <- purrr::map_df(group_ids, ~{
+  group_id <- .x
+  
+  # Retrieve the group's memberships
+  group_memberships <- get_group_users(canvas, group_id)
+  
+  # Extract user names from memberships
+  user_names <- group_memberships$name
+  
+  # Create a data frame with group memberships
+  group_df <- data.frame(group_id = rep(group_id, length(user_names)),
+                         user_name = user_names,
+                         stringsAsFactors = FALSE)
+
+  return(group_df)
+})
+
+
+```
