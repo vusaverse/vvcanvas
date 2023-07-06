@@ -61,6 +61,9 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_folders.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_groups.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_pages.html</loc>
   </url>
   <url>
@@ -79,6 +82,18 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_discussions.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_group_categories.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_group_info.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_group_memberships.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_group_users.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_module_items.html</loc>
   </url>
   <url>
@@ -92,5 +107,8 @@
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/post_new_discussion.html</loc>
   </url>
 </urlset>
