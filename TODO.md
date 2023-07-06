@@ -1438,7 +1438,7 @@
 - [ ]           List group categories for a context              GroupCategoriesController#index       ; 
     GET /api/v1/accounts/:account_id/group_categories
   
-- [ ]           List group categories for a context              GroupCategoriesController#index       ; 
+- [x]           List group categories for a context              GroupCategoriesController#index       ; 
     GET /api/v1/courses/:course_id/group_categories
   
 - [ ]           Get a single group category              GroupCategoriesController#show       ; 
@@ -1477,10 +1477,10 @@
 - [ ]           List the groups available in a context.              GroupsController#context_index       ; 
     GET /api/v1/accounts/:account_id/groups
   
-- [ ]           List the groups available in a context.              GroupsController#context_index       ; 
+- [x]           List the groups available in a context.              GroupsController#context_index       ; 
     GET /api/v1/courses/:course_id/groups
   
-- [ ]           Get a single group              GroupsController#show       ; 
+- [x]           Get a single group              GroupsController#show       ; 
     GET /api/v1/groups/:group_id
   
 - [ ]           Create a group              GroupsController#create       ; 
@@ -1498,7 +1498,7 @@
 - [ ]           Invite others to a group              GroupsController#invite       ; 
     POST /api/v1/groups/:group_id/invite
   
-- [ ]           List group's users              GroupsController#users       ; 
+- [x]           List group's users              GroupsController#users       ; 
     GET /api/v1/groups/:group_id/users
   
 - [ ]           Upload a file              GroupsController#create_file       ; 
@@ -1516,7 +1516,7 @@
 - [ ]           Permissions              GroupsController#permissions       ; 
     GET /api/v1/groups/:group_id/permissions
   
-- [ ]           List group memberships              GroupMembershipsController#index       ; 
+- [x]           List group memberships              GroupMembershipsController#index       ; 
     GET /api/v1/groups/:group_id/memberships
   
 - [ ]           Get a single group membership              GroupMembershipsController#show       ; 
