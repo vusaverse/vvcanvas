@@ -1957,7 +1957,7 @@
 - [ ]           List pages              WikiPagesApiController#index       ; 
     GET /api/v1/groups/:group_id/pages
   
-- [ ]           Create page              WikiPagesApiController#create       ; 
+- [x]           Create page              WikiPagesApiController#create       ; 
     POST /api/v1/courses/:course_id/pages
   
 - [ ]           Create page              WikiPagesApiController#create       ; 
