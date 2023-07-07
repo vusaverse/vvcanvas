@@ -217,7 +217,7 @@
 - [ ]           Get an Assignment Group              AssignmentGroupsApiController#show       ; 
     GET /api/v1/courses/:course_id/assignment_groups/:assignment_group_id
   
-- [ ]           Create an Assignment Group              AssignmentGroupsApiController#create       ; 
+- [x]           Create an Assignment Group              AssignmentGroupsApiController#create       ; 
     POST /api/v1/courses/:course_id/assignment_groups
   
 - [ ]           Edit an Assignment Group              AssignmentGroupsApiController#update       ; 
@@ -1297,7 +1297,7 @@
 - [ ]           Update folder              FoldersController#update       ; 
     PUT /api/v1/folders/:id
   
-- [ ]           Create folder              FoldersController#create       ; 
+- [x]           Create folder              FoldersController#create       ; 
     POST /api/v1/courses/:course_id/folders
   
 - [ ]           Create folder              FoldersController#create       ; 
