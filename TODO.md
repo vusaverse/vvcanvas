@@ -2371,7 +2371,7 @@
 - [x]           List course sections              SectionsController#index       ; 
     GET /api/v1/courses/:course_id/sections
   
-- [ ]           Create course section              SectionsController#create       ; 
+- [x]           Create course section              SectionsController#create       ; 
     POST /api/v1/courses/:course_id/sections
   
 - [ ]           Cross-list a Section              SectionsController#crosslist       ; 
