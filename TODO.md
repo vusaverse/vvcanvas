@@ -1447,7 +1447,7 @@
 - [ ]           Create a Group Category              GroupCategoriesController#create       ; 
     POST /api/v1/accounts/:account_id/group_categories
   
-- [ ]           Create a Group Category              GroupCategoriesController#create       ; 
+- [x]           Create a Group Category              GroupCategoriesController#create       ; 
     POST /api/v1/courses/:course_id/group_categories
   
 - [ ]           Import category groups              GroupCategoriesController#import       ; 
