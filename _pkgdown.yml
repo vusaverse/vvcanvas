@@ -2,3 +2,56 @@ url: https://vusaverse.github.io/vvcanvas/
 template:
   bootstrap: 5
 
+
+reference:
+- title: Course methods
+
+- subtitle: Assignment methods.
+  desc: >
+    methods that can be used on assignments in courses.
+  contents:
+  - create_assignment_group
+  - get_assignment_details
+  - get_assignment_submissions
+  - get_assignments
+
+
+- subtitle: Group methods.
+  desc: >
+    methods that can be used on groups in courses.
+  contents:
+  - create_group_category
+  - get_course_groups
+  - get_group_categories
+  - get_group_info
+  - get_group_memberships
+  - get_group_users
+
+
+
+- title: Other methods.
+  desc: >
+    Methods that need to be indexed.
+  contents:
+  - canvas_authenticate
+  - create_course_datalake
+  - create_course_section
+  - create_folder
+  - create_page
+  - download_course_file
+  - get_all_courses
+  - get_course_announcements
+  - get_course_details
+  - get_course_enrollments
+  - get_course_files
+  - get_course_folders
+  - get_course_pages
+  - get_course_quizzes
+  - get_course_sections
+  - get_course_students
+  - get_courses
+  - get_discussions
+  - get_module_items
+  - get_modules
+  - get_page_content
+  - post_new_discussion
