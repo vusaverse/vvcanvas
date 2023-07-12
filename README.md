@@ -1,4 +1,4 @@
-# vvcanvas <a href="https://vusaverse.github.io/vvcanvas/"><img src="man/figures/logo.png" align="right" height="139" /></a>
+# vvcanvas <a href="https://vusaverse.github.io/vvcanvas/"><img src="man/figures/logo.png" style="float:right; height:200px;" height="200" align="right" /></a>
 
 
 [![CodeFactor](https://www.codefactor.io/repository/github/vusaverse/vvcanvas/badge)](https://www.codefactor.io/repository/github/vusaverse/vvcanvas)
