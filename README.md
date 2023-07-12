@@ -1,4 +1,5 @@
-# vvcanvas Package
+# vvcanvas <a href="https://vusaverse.github.io/vvcanvas/"><img src="man/figures/logo.png" align="right" height="139" /></a>
+
 
 [![CodeFactor](https://www.codefactor.io/repository/github/vusaverse/vvcanvas/badge)](https://www.codefactor.io/repository/github/vusaverse/vvcanvas)
 [![R-CMD-check](https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml)
