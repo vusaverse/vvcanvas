@@ -142,13 +142,13 @@
 - [ ]           Get department-level statistics, broken down by subaccount           ; 
     GET /api/v1/accounts/:account_id/analytics/completed/statistics_by_subaccount
   
-- [ ]           Get course-level participation data           ; 
+- [x]           Get course-level participation data           ; 
     GET /api/v1/courses/:course_id/analytics/activity
   
 - [ ]           Get course-level assignment data           ; 
     GET /api/v1/courses/:course_id/analytics/assignments
   
-- [ ]           Get course-level student summary data           ; 
+- [x]           Get course-level student summary data           ; 
     GET /api/v1/courses/:course_id/analytics/student_summaries
   
 - [ ]           Get user-in-a-course-level participation data           ; 
