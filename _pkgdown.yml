@@ -55,3 +55,6 @@ reference:
   - get_modules
   - get_page_content
   - post_new_discussion
+  - get_course_participation
+  - get_student_summaries
+  - get_assignment_data
