@@ -145,7 +145,7 @@
 - [x]           Get course-level participation data           ; 
     GET /api/v1/courses/:course_id/analytics/activity
   
-- [ ]           Get course-level assignment data           ; 
+- [x]           Get course-level assignment data           ; 
     GET /api/v1/courses/:course_id/analytics/assignments
   
 - [x]           Get course-level student summary data           ; 
