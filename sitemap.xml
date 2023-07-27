@@ -58,6 +58,9 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_all_courses.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_assignment_data.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_assignment_details.html</loc>
   </url>
   <url>
@@ -86,6 +89,9 @@
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_pages.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_participation.html</loc>
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_course_quizzes.html</loc>
@@ -122,6 +128,9 @@
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_page_content.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_student_summaries.html</loc>
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/index.html</loc>
