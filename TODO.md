@@ -49,7 +49,7 @@
 - [ ]           Delete a Report              AccountReportsController#destroy       ; 
     DELETE /api/v1/accounts/:account_id/reports/:report/:id
   
-- [ ]           List accounts              AccountsController#index       ; 
+- [x]           List accounts              AccountsController#index       ; 
     GET /api/v1/accounts
   
 - [ ]           Get accounts that admins can manage              AccountsController#manageable_accounts       ; 
@@ -106,40 +106,40 @@
 - [ ]           List account admins              AdminsController#index       ; 
     GET /api/v1/accounts/:account_id/admins
   
-- [ ]           Get department-level participation data           ; 
+- [x]           Get department-level participation data           ; 
     GET /api/v1/accounts/:account_id/analytics/terms/:term_id/activity
   
-- [ ]           Get department-level participation data           ; 
+- [x]           Get department-level participation data           ; 
     GET /api/v1/accounts/:account_id/analytics/current/activity
   
-- [ ]           Get department-level participation data           ; 
+- [x]           Get department-level participation data           ; 
     GET /api/v1/accounts/:account_id/analytics/completed/activity
   
-- [ ]           Get department-level grade data           ; 
+- [x]           Get department-level grade data           ; 
     GET /api/v1/accounts/:account_id/analytics/terms/:term_id/grades
   
-- [ ]           Get department-level grade data           ; 
+- [x]           Get department-level grade data           ; 
     GET /api/v1/accounts/:account_id/analytics/current/grades
   
-- [ ]           Get department-level grade data           ; 
+- [x]           Get department-level grade data           ; 
     GET /api/v1/accounts/:account_id/analytics/completed/grades
   
-- [ ]           Get department-level statistics           ; 
+- [x]           Get department-level statistics           ; 
     GET /api/v1/accounts/:account_id/analytics/terms/:term_id/statistics
   
-- [ ]           Get department-level statistics           ; 
+- [x]           Get department-level statistics           ; 
     GET /api/v1/accounts/:account_id/analytics/current/statistics
   
-- [ ]           Get department-level statistics           ; 
+- [x]           Get department-level statistics           ; 
     GET /api/v1/accounts/:account_id/analytics/completed/statistics
   
-- [ ]           Get department-level statistics, broken down by subaccount           ; 
+- [x]           Get department-level statistics, broken down by subaccount           ; 
     GET /api/v1/accounts/:account_id/analytics/terms/:term_id/statistics_by_subaccount
   
-- [ ]           Get department-level statistics, broken down by subaccount           ; 
+- [x]           Get department-level statistics, broken down by subaccount           ; 
     GET /api/v1/accounts/:account_id/analytics/current/statistics_by_subaccount
   
-- [ ]           Get department-level statistics, broken down by subaccount           ; 
+- [x]           Get department-level statistics, broken down by subaccount           ; 
     GET /api/v1/accounts/:account_id/analytics/completed/statistics_by_subaccount
   
 - [x]           Get course-level participation data           ; 
@@ -151,13 +151,13 @@
 - [x]           Get course-level student summary data           ; 
     GET /api/v1/courses/:course_id/analytics/student_summaries
   
-- [ ]           Get user-in-a-course-level participation data           ; 
+- [x]           Get user-in-a-course-level participation data           ; 
     GET /api/v1/courses/:course_id/analytics/users/:student_id/activity
   
-- [ ]           Get user-in-a-course-level assignment data           ; 
+- [x]           Get user-in-a-course-level assignment data           ; 
     GET /api/v1/courses/:course_id/analytics/users/:student_id/assignments
   
-- [ ]           Get user-in-a-course-level messaging data           ; 
+- [x]           Get user-in-a-course-level messaging data           ; 
     GET /api/v1/courses/:course_id/analytics/users/:student_id/communication
   
 - [ ]           List external feeds              ExternalFeedsController#index       ; 

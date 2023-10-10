@@ -27,6 +27,20 @@ reference:
   - get_group_memberships
   - get_group_users
 
+- title: Analytics methods.
+  desc: >
+    Methods that access Canvas LMS Analytics data.
+  contents:
+  - get_department_participation_data
+  - get_department_grade_data
+  - get_department_statistics
+  - get_department_statistics_by_subaccount
+  - get_user_course_participation_data
+  - get_user_course_assignment_data
+  - get_user_course_messaging_data
+  - get_course_participation
+  - get_student_summaries
+  - get_assignment_data
 
 
 - title: Other methods.
@@ -55,6 +69,5 @@ reference:
   - get_modules
   - get_page_content
   - post_new_discussion
-  - get_course_participation
-  - get_student_summaries
-  - get_assignment_data
+  - get_accounts
+
