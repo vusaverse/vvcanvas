@@ -55,6 +55,9 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/download_course_file.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_accounts.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_all_courses.html</loc>
   </url>
   <url>
@@ -106,6 +109,18 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_courses.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_department_grade_data.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_department_participation_data.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_department_statistics.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_department_statistics_by_subaccount.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_discussions.html</loc>
   </url>
   <url>
@@ -131,6 +146,15 @@
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_student_summaries.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_user_course_assignment_data.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_user_course_messaging_data.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_user_course_participation_data.html</loc>
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/index.html</loc>
