@@ -1,6 +1,6 @@
 Package: vvcanvas
 Title: 'Canvas' LMS API Integration
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre", "cph"))
 Description: Allow R users to interact with the 'Canvas' Learning Management System (LMS) API (see

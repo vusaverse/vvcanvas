@@ -1,3 +1,7 @@
+# vvcanvas 0.0.3
+
+* Added methods for all Analytics endpoints.
+
 # vvcanvas 0.0.2
 
 * Added a `NEWS.md` file to track changes to the package.
