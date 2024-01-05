@@ -6,6 +6,7 @@
 prep.R$
 todo.R$
 ^\.github$
+^helperfunctions$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
