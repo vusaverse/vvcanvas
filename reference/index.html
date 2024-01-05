@@ -51,15 +51,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="course-methods">Course methods<a class="anchor" aria-label="anchor" href="#course-methods"></a></h2>
+      <h2 id="other-methods-">Other methods.<a class="anchor" aria-label="anchor" href="#other-methods-"></a></h2>
       
-      
-
-      
-    </div><div class="section level2">
-      
-      <h3 id="assignment-methods-">Assignment methods.<a class="anchor" aria-label="anchor" href="#assignment-methods-"></a></h3>
-      <p class="section-desc"></p><p>methods that can be used on assignments in courses.</p>
+      <p class="section-desc"></p><p>Methods that need to be indexed.</p>
 
       
     </div><div id="" class="section level2">
@@ -69,28 +63,28 @@
 
       <dl><dt>
           
-          <code><a href="create_assignment_group.html">create_assignment_group()</a></code> 
+          <code><a href="create_course_datalake.html">create_course_datalake()</a></code> 
         </dt>
-        <dd>Create an Assignment Group in Canvas LMS</dd>
+        <dd>Create a data lake for a course.</dd>
       </dl><dl><dt>
           
-          <code><a href="get_assignment_details.html">get_assignment_details()</a></code> 
+          <code><a href="canvas_authenticate.html">canvas_authenticate()</a></code> 
         </dt>
-        <dd>Get Assignment Details from Canvas LMS API</dd>
+        <dd>Authenticate with Canvas LMS API</dd>
       </dl><dl><dt>
           
-          <code><a href="get_assignment_submissions.html">get_assignment_submissions()</a></code> 
+          <code><a href="get_page_content.html">get_page_content()</a></code> 
         </dt>
-        <dd>Lists assignment submissions for a course.</dd>
+        <dd>Retrieves the content body of a specified page.</dd>
       </dl><dl><dt>
           
-          <code><a href="get_assignments.html">get_assignments()</a></code> 
+          <code><a href="download_course_file.html">download_course_file()</a></code> 
         </dt>
-        <dd>Get Assignments from Canvas LMS API</dd>
+        <dd>Downloads a file from a given URL.</dd>
       </dl></div><div class="section level2">
+      <h2 id="accounts">Accounts<a class="anchor" aria-label="anchor" href="#accounts"></a></h2>
       
-      <h3 id="group-methods-">Group methods.<a class="anchor" aria-label="anchor" href="#group-methods-"></a></h3>
-      <p class="section-desc"></p><p>methods that can be used on groups in courses.</p>
+      <p class="section-desc"></p><p>RMethods for accounts.</p>
 
       
     </div><div id="" class="section level2">
@@ -100,38 +94,13 @@
 
       <dl><dt>
           
-          <code><a href="create_group_category.html">create_group_category()</a></code> 
+          <code><a href="get_accounts.html">get_accounts()</a></code> 
         </dt>
-        <dd>Create a Group Category in Canvas LMS</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_groups.html">get_course_groups()</a></code> 
-        </dt>
-        <dd>Retrieves the list of groups in a course.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_group_categories.html">get_group_categories()</a></code> 
-        </dt>
-        <dd>Get group categories for a context</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_group_info.html">get_group_info()</a></code> 
-        </dt>
-        <dd>Get information about a single group</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_group_memberships.html">get_group_memberships()</a></code> 
-        </dt>
-        <dd>Get group memberships</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_group_users.html">get_group_users()</a></code> 
-        </dt>
-        <dd>Get users in a group</dd>
+        <dd>Get a list of accounts from the Canvas LMS API</dd>
       </dl></div><div class="section level2">
-      <h2 id="analytics-methods-">Analytics methods.<a class="anchor" aria-label="anchor" href="#analytics-methods-"></a></h2>
+      <h2 id="analytics">Analytics<a class="anchor" aria-label="anchor" href="#analytics"></a></h2>
       
-      <p class="section-desc"></p><p>Methods that access Canvas LMS Analytics data.</p>
+      <p class="section-desc"></p><p>Methods for analytics.</p>
 
       
     </div><div id="" class="section level2">
@@ -161,6 +130,16 @@
         <dd>Get department-level statistics by subaccount from the Canvas LMS API</dd>
       </dl><dl><dt>
           
+          <code><a href="get_course_participation.html">get_course_participation()</a></code> 
+        </dt>
+        <dd>Get course-level participation data from Canvas LMS API</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_student_summaries.html">get_student_summaries()</a></code> 
+        </dt>
+        <dd>Get student summaries for a course from Canvas LMS API</dd>
+      </dl><dl><dt>
+          
           <code><a href="get_user_course_participation_data.html">get_user_course_participation_data()</a></code> 
         </dt>
         <dd>Get user-in-a-course-level participation data from the Canvas LMS API</dd>
@@ -174,25 +153,10 @@
           <code><a href="get_user_course_messaging_data.html">get_user_course_messaging_data()</a></code> 
         </dt>
         <dd>Get user-in-a-course-level messaging data from the Canvas LMS API</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_participation.html">get_course_participation()</a></code> 
-        </dt>
-        <dd>Get course-level participation data from Canvas LMS API</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_student_summaries.html">get_student_summaries()</a></code> 
-        </dt>
-        <dd>Get student summaries for a course from Canvas LMS API</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_assignment_data.html">get_assignment_data()</a></code> 
-        </dt>
-        <dd>Get course-level assignment data from the Canvas LMS API</dd>
       </dl></div><div class="section level2">
-      <h2 id="other-methods-">Other methods.<a class="anchor" aria-label="anchor" href="#other-methods-"></a></h2>
+      <h2 id="announcements">Announcements<a class="anchor" aria-label="anchor" href="#announcements"></a></h2>
       
-      <p class="section-desc"></p><p>Methods that need to be indexed.</p>
+      <p class="section-desc"></p><p>Retrieve the list of announcements.</p>
 
       
     </div><div id="" class="section level2">
@@ -202,84 +166,67 @@
 
       <dl><dt>
           
-          <code><a href="canvas_authenticate.html">canvas_authenticate()</a></code> 
-        </dt>
-        <dd>Authenticate with Canvas LMS API</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_course_datalake.html">create_course_datalake()</a></code> 
-        </dt>
-        <dd>Create a data lake for a course.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_course_section.html">create_course_section()</a></code> 
-        </dt>
-        <dd>Create a Course Section in Canvas LMS</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_folder.html">create_folder()</a></code> 
-        </dt>
-        <dd>Create a Folder in Canvas LMS</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_page.html">create_page()</a></code> 
-        </dt>
-        <dd>Create a Page in Canvas LMS</dd>
-      </dl><dl><dt>
-          
-          <code><a href="download_course_file.html">download_course_file()</a></code> 
-        </dt>
-        <dd>Downloads a file from a given URL.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_all_courses.html">get_all_courses()</a></code> 
-        </dt>
-        <dd>Retrieves a paginated list of all courses visible in the public index.</dd>
-      </dl><dl><dt>
-          
           <code><a href="get_course_announcements.html">get_course_announcements()</a></code> 
         </dt>
         <dd>Retrieves course announcements.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="assignment-groups">Assignment Groups<a class="anchor" aria-label="anchor" href="#assignment-groups"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of assignment groups.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="create_assignment_group.html">create_assignment_group()</a></code> 
+        </dt>
+        <dd>Create an Assignment Group in Canvas LMS</dd>
+      </dl></div><div class="section level2">
+      <h2 id="assignments">Assignments<a class="anchor" aria-label="anchor" href="#assignments"></a></h2>
+      
+      <p class="section-desc"></p><p>Delete an assignment.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_assignment_details.html">get_assignment_details()</a></code> 
+        </dt>
+        <dd>Get Assignment Details from Canvas LMS API</dd>
       </dl><dl><dt>
+          
+          <code><a href="get_assignment_data.html">get_assignment_data()</a></code> 
+        </dt>
+        <dd>Get course-level assignment data from the Canvas LMS API</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_assignments.html">get_assignments()</a></code> 
+        </dt>
+        <dd>Get Assignments from Canvas LMS API</dd>
+      </dl></div><div class="section level2">
+      <h2 id="courses">Courses<a class="anchor" aria-label="anchor" href="#courses"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of courses.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="get_course_details.html">get_course_details()</a></code> 
         </dt>
         <dd>Get Course Details from Canvas LMS API</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_enrollments.html">get_course_enrollments()</a></code> 
-        </dt>
-        <dd>Retrieves the course enrollments for a course.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_files.html">get_course_files()</a></code> 
-        </dt>
-        <dd>Retrieves a list of files within a course.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_folders.html">get_course_folders()</a></code> 
-        </dt>
-        <dd>Retrieves course folders.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_pages.html">get_course_pages()</a></code> 
-        </dt>
-        <dd>Retrieves the pages within a course.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_quizzes.html">get_course_quizzes()</a></code> 
-        </dt>
-        <dd>Retrieves course quizzes.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_sections.html">get_course_sections()</a></code> 
-        </dt>
-        <dd>Retrieves course sections.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_course_students.html">get_course_students()</a></code> 
-        </dt>
-        <dd>Retrieves the list of students in a course.</dd>
       </dl><dl><dt>
           
           <code><a href="get_courses.html">get_courses()</a></code> 
@@ -287,34 +234,257 @@
         <dd>Get Courses from Canvas LMS API</dd>
       </dl><dl><dt>
           
+          <code><a href="get_course_students.html">get_course_students()</a></code> 
+        </dt>
+        <dd>Retrieves the list of students in a course.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="discussion-topics">Discussion Topics<a class="anchor" aria-label="anchor" href="#discussion-topics"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of discussion topics.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
           <code><a href="get_discussions.html">get_discussions()</a></code> 
         </dt>
         <dd>Retrieves the discussion topics within a course.</dd>
       </dl><dl><dt>
           
-          <code><a href="get_module_items.html">get_module_items()</a></code> 
+          <code><a href="post_new_discussion.html">post_new_discussion()</a></code> 
         </dt>
-        <dd>Retrieves the items within a specific module.</dd>
+        <dd>Post a New Discussion in Canvas LMS</dd>
+      </dl></div><div class="section level2">
+      <h2 id="enrollments">Enrollments<a class="anchor" aria-label="anchor" href="#enrollments"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of enrollments.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_enrollments.html">get_course_enrollments()</a></code> 
+        </dt>
+        <dd>Retrieves the course enrollments for a course.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="files">Files<a class="anchor" aria-label="anchor" href="#files"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of files and quota information.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_files.html">get_course_files()</a></code> 
+        </dt>
+        <dd>Retrieves a list of files within a course.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="folders">Folders<a class="anchor" aria-label="anchor" href="#folders"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of all folders.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_folders.html">get_course_folders()</a></code> 
+        </dt>
+        <dd>Retrieves course folders.</dd>
       </dl><dl><dt>
+          
+          <code><a href="create_folder.html">create_folder()</a></code> 
+        </dt>
+        <dd>Create a Folder in Canvas LMS</dd>
+      </dl></div><div class="section level2">
+      <h2 id="group-categories">Group Categories<a class="anchor" aria-label="anchor" href="#group-categories"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of group categories for a given context.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="create_group_category.html">create_group_category()</a></code> 
+        </dt>
+        <dd>Create a Group Category in Canvas LMS</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_group_categories.html">get_group_categories()</a></code> 
+        </dt>
+        <dd>Get group categories for a context</dd>
+      </dl></div><div class="section level2">
+      <h2 id="groups">Groups<a class="anchor" aria-label="anchor" href="#groups"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of groups available in a context.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_group_info.html">get_group_info()</a></code> 
+        </dt>
+        <dd>Get information about a single group</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_group_memberships.html">get_group_memberships()</a></code> 
+        </dt>
+        <dd>Get group memberships</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_group_users.html">get_group_users()</a></code> 
+        </dt>
+        <dd>Get users in a group</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_course_groups.html">get_course_groups()</a></code> 
+        </dt>
+        <dd>Retrieves the list of groups in a course.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="modules">Modules<a class="anchor" aria-label="anchor" href="#modules"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of modules for a specific course.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="get_modules.html">get_modules()</a></code> 
         </dt>
         <dd>Retrieves the modules within a course.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="module-items">Module Items<a class="anchor" aria-label="anchor" href="#module-items"></a></h2>
+      
+      <p class="section-desc"></p><p>Retrieve the list of module items for a specific module.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_module_items.html">get_module_items()</a></code> 
+        </dt>
+        <dd>Retrieves the items within a specific module.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="pages">Pages<a class="anchor" aria-label="anchor" href="#pages"></a></h2>
+      
+      <p class="section-desc"></p><p>Duplicate a page, update or create front page, list pages, and revert to a revision.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_pages.html">get_course_pages()</a></code> 
+        </dt>
+        <dd>Retrieves the pages within a course.</dd>
       </dl><dl><dt>
           
-          <code><a href="get_page_content.html">get_page_content()</a></code> 
+          <code><a href="create_page.html">create_page()</a></code> 
         </dt>
-        <dd>Retrieves the content body of a specified page.</dd>
+        <dd>Create a Page in Canvas LMS</dd>
+      </dl></div><div class="section level2">
+      <h2 id="quizzes">Quizzes<a class="anchor" aria-label="anchor" href="#quizzes"></a></h2>
+      
+      <p class="section-desc"></p><p>Manage quizzes.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_quizzes.html">get_course_quizzes()</a></code> 
+        </dt>
+        <dd>Retrieves course quizzes.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="search">Search<a class="anchor" aria-label="anchor" href="#search"></a></h2>
+      
+      <p class="section-desc"></p><p>Find recipients and list all courses.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_all_courses.html">get_all_courses()</a></code> 
+        </dt>
+        <dd>Retrieves a paginated list of all courses visible in the public index.</dd>
+      </dl></div><div class="section level2">
+      <h2 id="sections">Sections<a class="anchor" aria-label="anchor" href="#sections"></a></h2>
+      
+      <p class="section-desc"></p><p>Manage course sections.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_course_sections.html">get_course_sections()</a></code> 
+        </dt>
+        <dd>Retrieves course sections.</dd>
       </dl><dl><dt>
           
-          <code><a href="post_new_discussion.html">post_new_discussion()</a></code> 
+          <code><a href="create_course_section.html">create_course_section()</a></code> 
         </dt>
-        <dd>Post a New Discussion in Canvas LMS</dd>
-      </dl><dl><dt>
+        <dd>Create a Course Section in Canvas LMS</dd>
+      </dl></div><div class="section level2">
+      <h2 id="submissions">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a></h2>
+      
+      <p class="section-desc"></p><p>Manage student submissions.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
-          <code><a href="get_accounts.html">get_accounts()</a></code> 
+          <code><a href="get_assignment_submissions.html">get_assignment_submissions()</a></code> 
         </dt>
-        <dd>Get a list of accounts from the Canvas LMS API</dd>
+        <dd>Lists assignment submissions for a course.</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
