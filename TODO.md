@@ -1126,7 +1126,7 @@
 - [ ]           Get visible course navigation tools for a single course              ExternalToolsController#visible_course_nav_tools       ; 
     GET /api/v1/courses/:course_id/external_tools/visible_course_nav_tools
   
-- [ ]           List favorite courses              FavoritesController#list_favorite_courses       ; 
+- [x]           List favorite courses              FavoritesController#list_favorite_courses       ; 
     GET /api/v1/users/self/favorites/courses
   
 - [ ]           List favorite groups              FavoritesController#list_favorite_groups       ; 

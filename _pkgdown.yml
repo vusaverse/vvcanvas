@@ -488,11 +488,11 @@ reference:
 #   - remove_tool_from_rce_favorites
 #   - get_visible_course_navigation_tools
 #   - get_visible_course_navigation_tools_for_a_single_course
-# - title: Favorites
-#   desc: >
-#     Retrieve the list of favorite courses.
-#   contents:
-#   - list_favorite_courses
+- title: Favorites
+  desc: >
+    Methods of favorites.
+  contents:
+  - get_favorite_courses
 #   - list_favorite_groups
 #   - add_course_to_favorites
 #   - add_group_to_favorites
