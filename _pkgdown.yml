@@ -43,7 +43,7 @@ reference:
 #   - update_global_notification
 # - title: Account Reports
 #   desc: >
-#     RMethods for account reports.
+#     Methods for account reports.
 #   contents:
 #   - list_available_reports
 #   - start_a_report
@@ -52,7 +52,7 @@ reference:
 #   - delete_a_report
 - title: Accounts
   desc: >
-    RMethods for accounts.
+    Methods for accounts.
   contents:
   - get_accounts
 #   - get_accounts_admins_can_manage
@@ -92,25 +92,25 @@ reference:
   - get_user_course_messaging_data
 # - title: Announcement External Feeds
 #   desc: >
-#     Retrieve the list of external feeds.
+#     Methods for annoucements through external feeds.
 #   contents:
 #   - list_external_feeds
 #   - create_external_feed
 #   - delete_external_feed
 - title: Announcements
   desc: >
-    Retrieve the list of announcements.
+    Methods for announcements.
   contents:
   - get_course_announcements
 # - title: API Token Scopes
 #   desc: >
-#     Retrieve the list of API token scopes.
+#     Methods for API Token scopes.
 #   contents:
 #   - list_scopes
 #
 # - title: Appointment Groups
 #   desc: >
-#     Retrieve the list of appointment groups.
+#     Methods for appointment groups.
 #   contents:
 #   - list_appointment_groups
 #   - create_appointment_group
@@ -122,12 +122,12 @@ reference:
 #   - get_next_appointment
 # - title: Assignment Extensions
 #   desc: >
-#     Set extensions for student assignment submissions.
+#     Methods for assignment extensions.
 #   contents:
 #   - set_assignment_extensions
 - title: Assignment Groups
   desc: >
-    Retrieve the list of assignment groups.
+    Methos for assignment groups.
   contents:
 #   - list_assignment_groups
 #   - get_assignment_group
@@ -136,7 +136,7 @@ reference:
 #   - destroy_assignment_group
 - title: Assignments
   desc: >
-    Delete an assignment.
+    Methods for assignments.
   contents:
   # - delete_assignment
   # - list_assignments
@@ -151,7 +151,7 @@ reference:
   # - bulk_update_assignment_dates
 # - title: Assignment Overrides
 #   desc: >
-#     Retrieve the list of assignment overrides.
+#     Methods for assignment overrides
 #   contents:
 #   - list_assignment_overrides
 #   - get_single_assignment_override
@@ -165,7 +165,7 @@ reference:
 #   - batch_update_overrides_in_course
 # - title: Authentication Providers
 #   desc: >
-#     Retrieve the list of authentication providers.
+#     Methods for authentication providers.
 #   contents:
 #   - list_authentication_providers
 #   - add_authentication_provider
@@ -176,14 +176,14 @@ reference:
 #   - update_account_auth_settings
 # - title: Authentications Log
 #   desc: >
-#     Query authentications by login.
+#     Methods for authentications log.
 #   contents:
 #   - query_by_login
 #   - query_by_account
 #   - query_by_user
 # - title: Blackout Dates
 #   desc: >
-#     Retrieve the list of blackout dates.
+#     Methods for blackout dates.
 #   contents:
 #   - list_blackout_dates
 #   - get_single_blackout_date
@@ -361,7 +361,7 @@ reference:
 #
 - title: Courses
   desc: >
-    Retrieve the list of courses.
+    Methods for courses.
   contents:
   # - list_courses
   - get_course_details
@@ -409,7 +409,7 @@ reference:
 #
 - title: Discussion Topics
   desc: >
-    Retrieve the list of discussion topics.
+    Methods for discussion topics.
   contents:
   # - list_discussion_topics
   - get_discussions
@@ -441,7 +441,7 @@ reference:
 #   - retrieve_enrollment_term
 - title: Enrollments
   desc: >
-    Retrieve the list of enrollments.
+    Methods for enrollments.
   contents:
   - get_course_enrollments
   # - enrollment_by_id
@@ -510,7 +510,7 @@ reference:
 #   - remove_feature_flag
 - title: Files
   desc: >
-    Retrieve the list of files and quota information.
+    Methods for files.
   contents:
   # - get_quota_information
   - get_course_files
@@ -524,7 +524,7 @@ reference:
 #   - reset_link_verifier
 - title: Folders
   desc: >
-    Retrieve the list of all folders.
+    Methods for folders.
   contents:
   # - list_all_folders
   - get_course_folders
@@ -576,7 +576,7 @@ reference:
 #   - get_a_single_grading_standard_in_a_context
 - title: Group Categories
   desc: >
-    Retrieve the list of group categories for a given context.
+    Methods for group categories.
   contents:
   # - list_group_categories_for_a_context
   # - get_a_single_group_category
@@ -592,7 +592,7 @@ reference:
   # - assign_unassigned_members
 - title: Groups
   desc: >
-    Retrieve the list of groups available in a context.
+    Methods for groups.
   contents:
   # - list_groups
   # - get_a_single_group
@@ -702,7 +702,7 @@ reference:
 #   - show_provisional_grade_status_for_a_student
 - title: Modules
   desc: >
-    Retrieve the list of modules for a specific course.
+    Methods for modules.
   contents:
   # - list_modules
   - get_modules
@@ -713,7 +713,7 @@ reference:
   # - re_lock_module_progressions
 - title: Module Items
   desc: >
-    Retrieve the list of module items for a specific module.
+    Methods for module items.
   contents:
   - get_module_items
   # - show_module_item
@@ -829,7 +829,7 @@ reference:
 #
 - title: Pages
   desc: >
-    Duplicate a page, update or create front page, list pages, and revert to a revision.
+    Methods for pages.
   contents:
   - get_course_pages
   # - show_front_page
@@ -1032,7 +1032,7 @@ reference:
 #
 - title: Quizzes
   desc: >
-    Manage quizzes.
+    Methods for quizzes.
   contents:
   - get_course_quizzes
 #   - create_quiz
@@ -1104,14 +1104,13 @@ reference:
   desc: >
     Manage course sections.
   contents:
-  # - list_course_sections
   - get_course_sections
   - create_course_section
-  # - edit_course_section
-  # - delete_course_section
+  - edit_section
+  - delete_course_section
   # - cross_list_section
   # - decross_list_section
-  # - get_section_information
+  - get_section_information
   # - delete_section
 #
 # title: Services

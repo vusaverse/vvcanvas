@@ -2386,10 +2386,10 @@
 - [ ]           Get section information              SectionsController#show       ; 
     GET /api/v1/courses/:course_id/sections/:id
   
-- [ ]           Get section information              SectionsController#show       ; 
+- [x]           Get section information              SectionsController#show       ; 
     GET /api/v1/sections/:id
   
-- [ ]           Delete a section              SectionsController#destroy       ; 
+- [x]           Delete a section              SectionsController#destroy       ; 
     DELETE /api/v1/sections/:id
   
 - [ ]           Get Kaltura config              ServicesApiController#show_kaltura_config       ; 
