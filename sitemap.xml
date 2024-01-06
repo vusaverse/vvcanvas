@@ -52,7 +52,13 @@
     <loc>https://vusaverse.github.io/vvcanvas/reference/create_page.html</loc>
   </url>
   <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/delete_course_section.html</loc>
+  </url>
+  <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/download_course_file.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/edit_section.html</loc>
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_accounts.html</loc>
@@ -143,6 +149,9 @@
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_page_content.html</loc>
+  </url>
+  <url>
+    <loc>https://vusaverse.github.io/vvcanvas/reference/get_section_information.html</loc>
   </url>
   <url>
     <loc>https://vusaverse.github.io/vvcanvas/reference/get_student_summaries.html</loc>
