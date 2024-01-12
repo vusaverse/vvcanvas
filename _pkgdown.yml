@@ -232,11 +232,11 @@ reference:
 #     Retrieve the brand config variables that should be used for this domain.
 #   contents:
 #   - get_brand_config_variables
-# - title: Calendar Events
-#   desc: >
-#     Retrieve the list of calendar events.
-#   contents:
-#   - list_calendar_events
+- title: Calendar Events
+  desc: >
+    Calendat events methods.
+  contents:
+  - get_calendar_events
 #   - list_calendar_events_for_user
 #   - create_calendar_event
 #   - get_single_calendar_event_or_assignment

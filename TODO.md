@@ -409,7 +409,7 @@
 - [ ]           Get the brand config variables that should be used for this domain              BrandConfigsApiController#show       ; 
     GET /api/v1/brand_variables
   
-- [ ]           List calendar events              CalendarEventsApiController#index       ; 
+- [x]           List calendar events              CalendarEventsApiController#index       ; 
     GET /api/v1/calendar_events
   
 - [ ]           List calendar events for a user              CalendarEventsApiController#user_index       ; 
