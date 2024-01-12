@@ -42,10 +42,19 @@ library(vvcanvas)
 
 # Replace the placeholders with your API key and base URL
 api_key <- "YOUR_API_KEY"
-base_url <- "https://your_canvas_domain.com"
+base_url <- "https://your_canvas_domain.com/"
 
 # Authenticate with the Canvas LMS API
 canvas <- canvas_authenticate(api_key, base_url)
+
+## Alternatively, you can set system variables
+
+# Set the API key and base URL as environment variables
+Sys.setenv(CANVAS_API_KEY = "YOUR_API_KEY")
+Sys.setenv(CANVAS_BASE_URL = "https://your_canvas_domain.com/")
+
+# Authenticate with the Canvas LMS API
+canvas <- canvas_authenticate()
 
 ```
 
