@@ -13,6 +13,8 @@ reference:
   - canvas_authenticate
   - get_page_content
   - download_course_file
+  - canvas_api_key
+  - canvas_base_url
 
 # - title: Account Calendars
 #   desc: >
