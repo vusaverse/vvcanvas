@@ -1054,7 +1054,7 @@ reference:
   desc: >
     Manage roles.
   contents:
-  - list_roles
+  - get_roles
   # - get_role
   # - create_role
   # - deactivate_role
