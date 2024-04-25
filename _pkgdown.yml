@@ -1050,16 +1050,16 @@ reference:
 #   - show_results
 #   - show_result
 #
-# title: Roles
-# desc: >
-#   Manage roles.
-# contents:
-#   - list_roles
-#   - get_role
-#   - create_role
-#   - deactivate_role
-#   - activate_role
-#   - update_role
+- title: Roles
+  desc: >
+    Manage roles.
+  contents:
+  - list_roles
+  # - get_role
+  # - create_role
+  # - deactivate_role
+  # - activate_role
+  # - update_role
 # title: Rubrics
 # desc: >
 #   Manage rubrics.
