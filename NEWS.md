@@ -1,3 +1,12 @@
+# vvcanvas 0.0.4
+
+* Added methods for sections.
+* Added methods for favorites.
+* Updated authentication method.
+* Updated vignette.
+* Added method for calendar events.
+* Added method for account roles.
+
 # vvcanvas 0.0.3
 
 * Added methods for all Analytics endpoints.
