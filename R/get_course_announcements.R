@@ -23,7 +23,9 @@ get_course_announcements <- function(canvas, course_id, per_page = 100) {
 
   # Parse the response as JSON
   announcements <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as.data.frame() %>%
+    dplyr::mutate(course_id = course_id)
 
   # Return the data frame of announcements
   return(announcements)

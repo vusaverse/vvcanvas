@@ -23,7 +23,9 @@ get_course_files <- function(canvas, course_id, per_page = 100) {
 
   # Parse the response as JSON
   files <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+    jsonlite::fromJSON(flatten = TRUE) %>%
+    as.data.frame() %>%
+    dplyr::mutate(course_id = course_id)
 
   # Return the data frame of files
   return(files)
