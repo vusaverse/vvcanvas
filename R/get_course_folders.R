@@ -25,7 +25,7 @@ get_course_folders <- function(canvas, course_id, per_page = 100) {
   folders <- httr::content(response, "text", encoding = "UTF-8") %>%
     jsonlite::fromJSON(flatten = TRUE) %>%
     as.data.frame() %>%
-    mutate(course_id = course_id)
+    dplyr::mutate(course_id = course_id)
 
   # Return the data frame of folders
   return(folders)

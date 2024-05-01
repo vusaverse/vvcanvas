@@ -131,7 +131,7 @@ reference:
   desc: >
     Methos for assignment groups.
   contents:
-#   - list_assignment_groups
+  - get_assignment_groups
 #   - get_assignment_group
   - create_assignment_group
 #   - edit_assignment_group
@@ -373,6 +373,7 @@ reference:
   # - create_new_course
   # - upload_file
   - get_course_students
+  - get_course_users
   # - get_single_user
   # - search_for_content_share_users
   # - preview_processed_html
@@ -677,11 +678,11 @@ reference:
 #   contents:
 #   - list_media_tracks
 #   - update_media_tracks
-# - title: Media Objects
-#   desc: >
-#     Retrieve the list of Media Objects.
-#   contents:
-#   - list_media_objects
+- title: Media Objects
+  desc: >
+    Retrieve the list of Media Objects.
+  contents:
+  - get_course_media_objects
 #   - update_media_object
 # - title: Moderation Set
 #   desc: >
