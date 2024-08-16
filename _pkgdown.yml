@@ -287,13 +287,13 @@ reference:
 #   - list_migration_issues
 #   - get_migration_issue
 #   - update_migration_issue
-# - title: Content Migrations
-#   desc: >
-#     Retrieve the list of content migrations.
-#   contents:
+- title: Content Migrations
+  desc: >
+    Retrieve the list of content migrations.
+  contents:
 #   - list_content_migrations
 #   - get_content_migration
-#   - create_content_migration
+  - upload_qti_file_with_migration
 #   - update_content_migration
 #   - list_migration_systems
 #   - list_items_for_selective_import
