@@ -447,6 +447,7 @@ reference:
     Methods for enrollments.
   contents:
   - get_course_enrollments
+  - get_section_students
   # - enrollment_by_id
   # - conclude_deactivate_or_delete_an_enrollment
   # - accept_course_invitation
