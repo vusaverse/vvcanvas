@@ -1039,7 +1039,7 @@ reference:
   contents:
   - get_course_quizzes
 #   - create_quiz
-#   - edit_quiz
+  - update_quiz
 #   - delete_quiz
 #   - reorder_quiz_items
 #   - validate_quiz_access_code

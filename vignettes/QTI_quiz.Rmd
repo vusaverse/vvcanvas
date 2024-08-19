@@ -1,0 +1,101 @@
+---
+title: "Uploading QTI Files and Updating Quiz Parameters in Canvas LMS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Uploading QTI Files and Updating Quiz Parameters in Canvas LMS}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r setup}
+library(vvcanvas)
+```
+
+
+## Introduction
+
+This vignette demonstrates how to upload a QTI file to Canvas LMS, retrieve the list of quizzes before and after the upload, and update quiz parameters using R. The process involves using the `get_course_quizzes` and `update_quiz` functions.
+
+## Step 1: Authenticate with Canvas
+
+First, authenticate with Canvas by creating a canvas object containing your API key and base URL:
+
+```{r}  
+canvas <- vvcanvas::canvas_authenticate()
+
+```
+
+## Step 2: Retrieve the List of Quizzes
+
+Retrieve the list of quizzes in a course before uploading the QTI file: 
+
+
+```{r}
+course_id <- "12345"  # Replace with your actual course ID
+quizzes_before <- get_course_quizzes(canvas, course_id)
+
+```
+
+
+## Step 3: Upload the QTI File
+
+Use the `upload_qti_file_with_migration` function to upload your QTI file. This function should be defined to handle the QTI file upload process: 
+ 
+
+```{r}
+# Define the function if not already defined
+
+
+# Upload the QTI file
+file_path <- "path/to/your/qti_file.zip"  # Replace with your actual file path
+upload_qti_file_with_migration(canvas, course_id = course_id, file_path = "qti_file.zip", pre_attachment_size = "12345", pre_attachment_name = "test")
+
+```
+
+## Step 4: Retrieve Quizzes After Upload
+Retrieve the list of quizzes again after the QTI file upload: 
+ 
+```{r}
+quizzes_after <- get_course_quizzes(canvas, course_id)
+print(quizzes_after)
+```
+
+## Step 5: Identify the New Quiz
+
+Compare the lists of quizzes before and after the upload to identify the newly created quiz: 
+
+```{r}
+
+new_quiz <- setdiff(quizzes_after, quizzes_before)
+print(new_quiz)
+
+```
+
+## Step 6: Update Quiz Parameters
+
+Use the update_quiz function to modify the parameters of the newly created quiz: 
+
+```{r}
+
+quiz_id <- new_quiz$id  # Assuming there's only one new quiz
+quiz_params <- list(
+  title = "Updated Quiz Title",
+  description = "Updated description of the quiz.",
+  due_at = "2013-01-23T23:59:00-07:00"
+)
+
+updated_quiz <- update_quiz(canvas, course_id, quiz_id, quiz_params)
+print(updated_quiz)
+
+```
+
+## Conclusion
+This vignette demonstrated how to upload a QTI file to Canvas LMS, identify the newly created quiz, and update its parameters. You can extend this process to modify other quiz attributes as needed.
