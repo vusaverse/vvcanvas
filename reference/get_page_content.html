@@ -44,7 +44,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_page_content</span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">page_id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_page_content</span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">page_id</span>, return_as_plain_text <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,10 +62,14 @@
 <dt id="arg-page-id">page_id<a class="anchor" aria-label="anchor" href="#arg-page-id"></a></dt>
 <dd><p>The ID of the page for which to fetch the content body.</p></dd>
 
+
+<dt id="arg-return-as-plain-text">return_as_plain_text<a class="anchor" aria-label="anchor" href="#arg-return-as-plain-text"></a></dt>
+<dd><p>A logical value indicating whether to return the content as plain text (default is TRUE).</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The content body of the specified page.</p>
+    <p>The content body of the specified page, either as plain text or raw HTML.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
