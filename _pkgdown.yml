@@ -710,6 +710,7 @@ reference:
   contents:
   # - list_modules
   - get_modules
+  - create_module
   # - show_module
   # - create_module
   # - update_module
@@ -720,6 +721,7 @@ reference:
     Methods for module items.
   contents:
   - get_module_items
+  - create_module_item
   # - show_module_item
   # - create_module_item
   # - update_module_item
