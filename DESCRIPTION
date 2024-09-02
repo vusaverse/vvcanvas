@@ -2,7 +2,20 @@ Package: vvcanvas
 Title: 'Canvas' LMS API Integration
 Version: 0.0.4
 Authors@R: 
-    person("Tomer", "Iwan", , "t.iwan@vu.nl", role = c("aut", "cre", "cph"))
+  c(person(given = "Tomer", 
+           family = "Iwan", 
+           role = c("aut", "cre"), 
+           email = "t.iwan@vu.nl"
+           ),
+    person(given = "Niels",
+           family = "Smits",
+           role = "ctb",
+           email = "n.smits@uva.nl",
+           comment = c(ORCID = "0000-0003-3669-9266")
+           ),
+    person(given = "VU Analytics",
+           role = "cph"
+           ))
 Description: Allow R users to interact with the 'Canvas' Learning Management System (LMS) API (see
     <https://canvas.instructure.com/doc/api/all_resources.html> for details).
     It provides a set of functions to access and manipulate course data, assignments, grades, users, 
