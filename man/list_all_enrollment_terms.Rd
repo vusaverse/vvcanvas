@@ -23,7 +23,3 @@ A dataframe containing all enrollment terms details
 \description{
 This function retrieves a paginated list of all enrollment terms for a specified account in Canvas LMS.
 }
-\examples{
-canvas <- list(base_url = "https://canvas.instructure.com", api_key = "your_api_key")
-terms <- list_all_enrollment_terms(canvas, account_id = "1")
-}

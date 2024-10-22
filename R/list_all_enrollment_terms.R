@@ -14,9 +14,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' canvas <- list(base_url = "https://canvas.instructure.com", api_key = "your_api_key")
-#' terms <- list_all_enrollment_terms(canvas, account_id = "1")
 list_all_enrollment_terms <- function(canvas, account_id, per_page = 100) {
   # Initialize an empty data frame to store all terms
   all_terms <- data.frame()
