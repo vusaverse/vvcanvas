@@ -524,6 +524,7 @@ reference:
 #   - get_file
 #   - translate_file
 #   - update_file
+  - upload_file
 #   - delete_file
 #   - get_icon_metadata
 #   - reset_link_verifier
@@ -846,7 +847,8 @@ reference:
   - create_page
   # - show_page
   # - update_create_page
-  # - delete_page
+  - update_page
+  - delete_page
   # - list_revisions
   # - show_revision
   # - revert_to_revision
