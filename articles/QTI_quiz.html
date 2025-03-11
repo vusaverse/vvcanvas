@@ -72,8 +72,9 @@
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>This vignette demonstrates how to upload a QTI file to Canvas LMS,
-retrieve the list of quizzes before and after the upload, and update
-quiz parameters using R. The process involves using the
+retrieve the ID of the newly created quiz, and update quiz parameters
+using R. The process involves using the
+<code>upload_qti_file_with_migration</code>,
 <code>get_course_quizzes</code> and <code>update_quiz</code>
 functions.</p>
 </div>
@@ -88,8 +89,9 @@ containing your API key and base URL:</p>
 <div class="section level2">
 <h2 id="step-2-retrieve-the-list-of-quizzes">Step 2: Retrieve the List of Quizzes<a class="anchor" aria-label="anchor" href="#step-2-retrieve-the-list-of-quizzes"></a>
 </h2>
-<p>Retrieve the list of quizzes in a course before uploading the QTI
-file:</p>
+<p>Set the course in which the upload must take place and retrieve the
+list of quizzes already available before uploading the new QTI file into
+the course:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">course_id</span> <span class="op">&lt;-</span> <span class="st">"12345"</span>  <span class="co"># Replace with your actual course ID</span></span>
 <span><span class="va">quizzes_before</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_course_quizzes.html">get_course_quizzes</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span><span class="op">)</span></span></code></pre></div>
@@ -97,33 +99,53 @@ file:</p>
 <div class="section level2">
 <h2 id="step-3-upload-the-qti-file">Step 3: Upload the QTI File<a class="anchor" aria-label="anchor" href="#step-3-upload-the-qti-file"></a>
 </h2>
-<p>Use the <code>upload_qti_file_with_migration</code> function to
-upload your QTI file. This function should be defined to handle the QTI
-file upload process:</p>
+<p>The time that Canvas requires to process the uploaded QTI file is
+hard to predict. It depends on the traffic on the Canvas server, and
+possibly the number of migrations the user has recently performed.
+Therefore, in circumstances with much waiting time a different approach
+is advised than when waiting time is short. In the latter case the ID of
+the quiz is easily obtained, and in the former case the ID needs to be
+determined using a more extensive approach requiring two additional
+steps.</p>
+<p>If processing takes little time (e.g., 5 to 10 seconds), one can
+obtain the ID of the quiz directly using the
+<code>upload_qti_file_with_migration</code> function setting
+<code>wait = TRUE</code>, by which the function waits 30 seconds after
+uploading the QTI file to check if it has been converted into a new
+quiz. If a new quiz has been created it returns the ID of the quiz; if
+not it asks the user if further waiting is required. Assuming the QTI
+file, stored in the working directory, is called “qti_file.zip”, the
+following code may be used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Define the function if not already defined</span></span>
-<span></span>
-<span></span>
-<span><span class="co"># Upload the QTI file</span></span>
-<span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="st">"path/to/your/qti_file.zip"</span>  <span class="co"># Replace with your actual file path</span></span>
-<span><span class="fu"><a href="../reference/upload_qti_file_with_migration.html">upload_qti_file_with_migration</a></span><span class="op">(</span><span class="va">canvas</span>, course_id <span class="op">=</span> <span class="va">course_id</span>, file_path <span class="op">=</span> <span class="st">"qti_file.zip"</span>, pre_attachment_size <span class="op">=</span> <span class="st">"12345"</span>, pre_attachment_name <span class="op">=</span> <span class="st">"test"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span>  <span class="co"># Replace with your actual file name</span></span>
+<span><span class="va">quiz_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/upload_qti_file_with_migration.html">upload_qti_file_with_migration</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">qti_name</span>, wait <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Note that if this route is successful, one can directly <strong>go to
+step 6</strong>.</p>
+<p>By contrast, if one prefers or is forced to use the extensive
+approach, it is advised to use the following code, which also requires
+steps 4 and 5:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span>  <span class="co"># Replace with your actual file name</span></span>
+<span><span class="fu"><a href="../reference/upload_qti_file_with_migration.html">upload_qti_file_with_migration</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">qti_name</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="step-4-retrieve-quizzes-after-upload">Step 4: Retrieve Quizzes After Upload<a class="anchor" aria-label="anchor" href="#step-4-retrieve-quizzes-after-upload"></a>
+<h2 id="step-4-retrieve-quizzes-after-upload-extensive-approach">Step 4: Retrieve Quizzes After Upload (extensive approach)<a class="anchor" aria-label="anchor" href="#step-4-retrieve-quizzes-after-upload-extensive-approach"></a>
 </h2>
-<p>Retrieve the list of quizzes again after the QTI file upload:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p>For the extensive approach it is advised to wait sufficient time to
+make sure the QTI is converted into a quiz (sometimes it takes one or
+two hours). Next, retrieve the list of quizzes again after the QTI file
+upload using:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">quizzes_after</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_course_quizzes.html">get_course_quizzes</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">quizzes_after</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="step-5-identify-the-new-quiz">Step 5: Identify the New Quiz<a class="anchor" aria-label="anchor" href="#step-5-identify-the-new-quiz"></a>
+<h2 id="step-5-identify-the-new-quiz-extensive-approach">Step 5: Identify the New Quiz (extensive approach)<a class="anchor" aria-label="anchor" href="#step-5-identify-the-new-quiz-extensive-approach"></a>
 </h2>
 <p>Compare the lists of quizzes before and after the upload to identify
-the newly created quiz:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">new_quiz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">quizzes_after</span>, <span class="va">quizzes_before</span><span class="op">)</span></span>
+the ID of the newly created quiz:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">quiz_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">quizzes_after</span>, <span class="va">quizzes_before</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">new_quiz</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -131,13 +153,12 @@ the newly created quiz:</p>
 </h2>
 <p>Use the update_quiz function to modify the parameters of the newly
 created quiz:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">quiz_id</span> <span class="op">&lt;-</span> <span class="va">new_quiz</span><span class="op">$</span><span class="va">id</span>  <span class="co"># Assuming there's only one new quiz</span></span>
-<span><span class="va">quiz_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">quiz_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"Updated Quiz Title"</span>,</span>
 <span>  description <span class="op">=</span> <span class="st">"Updated description of the quiz."</span>,</span>
-<span>  due_at <span class="op">=</span> <span class="st">"2013-01-23T23:59:00-07:00"</span></span>
+<span>  due_at <span class="op">=</span> <span class="st">"2013-01-23T23:59:00-07:00"</span>,</span>
+<span>  published <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">updated_quiz</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/update_quiz.html">update_quiz</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">quiz_id</span>, <span class="va">quiz_params</span><span class="op">)</span></span>
