@@ -8,7 +8,7 @@
 [![CRAN last month downloads](https://cranlogs.r-pkg.org/badges/last-month/vvcanvas?color=green/)](https://cran.r-project.org/package=vvcanvas/)
 [![CRAN last month downloads](https://cranlogs.r-pkg.org/badges/grand-total/vvcanvas?color=green/)](https://cran.r-project.org/package=vvcanvas/)
 
-The `vvcanvas` package is an R library that provides a convenient interface to interact with the Canvas Learning Management System (LMS) API. It allows users to authenticate, retrieve course information, fetch specific details, and perform various operations within the Canvas LMS.
+The open source R package vvcanvas provides a convenient interface to interact with the Canvas Learning Management System (LMS) API. It allows users to authenticate, retrieve course information, fetch specific details, and perform various operations within the Canvas LMS.
 
 ## Installation
 
