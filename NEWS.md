@@ -1,3 +1,6 @@
+# vvcanvas 0.0.5
+* Added numerous page functions.
+
 # vvcanvas 0.0.4
 
 * Added methods for sections.
