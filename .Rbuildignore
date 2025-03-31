@@ -10,3 +10,4 @@ todo.R$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^CRAN-SUBMISSION$
