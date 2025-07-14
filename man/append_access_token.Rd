@@ -6,6 +6,14 @@
 \usage{
 append_access_token(url, access_token)
 }
+\arguments{
+\item{url}{The URL to which the access_token should be appended.}
+
+\item{access_token}{The Canvas API access token (string).}
+}
+\value{
+The URL with the access_token appended if it was not already present.
+}
 \description{
 Appends access_token to URL if not present
 }

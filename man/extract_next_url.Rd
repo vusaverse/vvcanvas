@@ -6,6 +6,12 @@
 \usage{
 extract_next_url(link_header)
 }
+\arguments{
+\item{link_header}{The Link header string from an httr response.}
+}
+\value{
+The URL (character) for the next page, or NULL if not present.
+}
 \description{
 Extracts the 'next' URL from a Link header
 }

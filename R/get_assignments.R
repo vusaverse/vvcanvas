@@ -7,6 +7,7 @@
 #'
 #' @return A list of assignments retrieved from the Canvas LMS API.
 #' @export
+#' @importFrom tidyr unnest
 #'
 get_assignments <- function(canvas, course_id) {
   # Construct the API endpoint URL
