@@ -11,12 +11,18 @@
 #' @export
 paginate <- function(initial_response, access_token, showProgress = TRUE) {
   responses <- list(initial_response)
-  link_header <- httr::headers(initial_response)[[grep("^link$", names(httr::headers(initial_response)), ignore.case = TRUE)]]
+  idx <- grep("^link$", names(httr::headers(initial_response)), ignore.case = TRUE)
+  link_header <- if (length(idx)) httr::headers(initial_response)[[idx]] else NULL
   while (!is.null(link_header) && grepl('rel="next"', link_header, ignore.case = TRUE)) {
     next_url <- extract_next_url(link_header)
-    next_url <- append_access_token(next_url, access_token)
+    next_response <- httr::GET(next_url, httr::add_headers(Authorization = paste("Bearer", access_token)))
+    httr::stop_for_status(next_response)
     next_response <- httr::GET(next_url, httr::add_headers(Authorization = paste("Bearer", access_token)))
     responses <- c(responses, list(next_response))
+    idx <- grep("^link$", names(httr::headers(next_response)), ignore.case = TRUE)
+    link_header <- if (length(idx)) httr::headers(next_response)[[idx]] else NULL
+    idx <- grep("^link$", names(httr::headers(next_response)), ignore.case = TRUE)
+    link_header <- if (length(idx)) httr::headers(next_response)[[idx]] else NULL
     link_header <- httr::headers(next_response)[[grep("^link$", names(httr::headers(next_response)), ignore.case = TRUE)]]
     if (showProgress) cat(".")
   }
