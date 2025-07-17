@@ -2326,16 +2326,16 @@
 - [ ]           Delete a single rubric              RubricsController#destroy       ; 
     DELETE /api/v1/courses/:course_id/rubrics/:id
   
-- [ ]           List rubrics              RubricsApiController#index       ; 
+- [x]           List rubrics              RubricsApiController#index       ; 
     GET /api/v1/accounts/:account_id/rubrics
-  
-- [ ]           List rubrics              RubricsApiController#index       ; 
+
+- [x]           List rubrics              RubricsApiController#index       ; 
     GET /api/v1/courses/:course_id/rubrics
-  
-- [ ]           Get a single rubric              RubricsApiController#show       ; 
+
+- [x]           Get a single rubric              RubricsApiController#show       ; 
     GET /api/v1/accounts/:account_id/rubrics/:id
-  
-- [ ]           Get a single rubric              RubricsApiController#show       ; 
+
+- [x]           Get a single rubric              RubricsApiController#show       ; 
     GET /api/v1/courses/:course_id/rubrics/:id
   
 - [ ]           Create a single rubric assessment              RubricAssessmentsController#create       ; 
