@@ -57,6 +57,9 @@ reference:
     Methods for accounts.
   contents:
   - get_accounts
+  - get_account_details
+  - get_account_courses
+  - get_account_users
   - list_all_enrollment_terms
 #   - get_accounts_admins_can_manage
 #   - get_accounts_users_can_create_courses_in
@@ -146,6 +149,8 @@ reference:
   - get_assignment_details
   - get_assignment_data
   - get_assignments
+  - get_assignment_submissions_detailed
+  - get_assignment_gradeable_students
   # - list_user_assignments
   # - duplicate_assignment
   # - get_single_assignment
@@ -369,12 +374,17 @@ reference:
   # - list_courses
   - get_course_details
   - get_courses
+  - get_user_courses
   # - list_courses_for_user
   # - get_user_progress
   # - create_new_course
   # - upload_file
   - get_course_students
   - get_course_users
+  - get_course_recent_students
+  - get_course_activity_stream
+  - get_course_activity_stream_summary
+  - get_course_bulk_user_progress
   # - get_single_user
   # - search_for_content_share_users
   # - preview_processed_html
@@ -417,6 +427,8 @@ reference:
   contents:
   # - list_discussion_topics
   - get_discussions
+  - get_discussion_topic_details
+  - get_discussion_topic_entries
   - post_new_discussion
   # - update_topic
   # - delete_topic
@@ -448,6 +460,7 @@ reference:
     Methods for enrollments.
   contents:
   - get_course_enrollments
+  - get_user_enrollments
   - get_section_students
   # - enrollment_by_id
   # - conclude_deactivate_or_delete_an_enrollment
@@ -1044,6 +1057,8 @@ reference:
     Methods for quizzes.
   contents:
   - get_course_quizzes
+  - get_quiz_details
+  - get_quiz_submissions
 #   - create_quiz
   - update_quiz
 #   - delete_quiz
@@ -1108,7 +1123,24 @@ reference:
     Find recipients and list all courses.
   contents:
   - get_all_courses
-#
+
+- title: Users
+  desc: >
+    Manage users and user data.
+  contents:
+  - get_user_details
+  - get_user_courses
+  - get_user_enrollments
+  - get_user_missing_submissions
+  - get_user_activity_stream
+
+- title: Reports
+  desc: >
+    Manage and retrieve reports.
+  contents:
+  - get_available_reports
+  - get_report_status
+
 - title: Sections
   desc: >
     Manage course sections.
@@ -1286,6 +1318,8 @@ reference:
   contents:
   # - submit_assignment
   - get_assignment_submissions
+  - get_assignment_submissions_detailed
+  - get_user_missing_submissions
 #   - list_submissions_for_multiple_assignments
 #   - get_single_submission
 #   - get_single_submission_by_anonymous_id
