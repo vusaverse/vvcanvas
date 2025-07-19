@@ -2329,7 +2329,7 @@
 - [ ]           List rubrics              RubricsApiController#index       ; 
     GET /api/v1/accounts/:account_id/rubrics
   
-- [ ]           List rubrics              RubricsApiController#index       ; 
+- [x]           List rubrics              RubricsApiController#index       ; 
     GET /api/v1/courses/:course_id/rubrics
   
 - [ ]           Get a single rubric              RubricsApiController#show       ; 
