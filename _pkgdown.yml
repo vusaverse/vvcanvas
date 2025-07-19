@@ -146,6 +146,7 @@ reference:
   - get_assignment_details
   - get_assignment_data
   - get_assignments
+  - list_assignment_rubric_assessments
   # - list_user_assignments
   # - duplicate_assignment
   # - get_single_assignment
