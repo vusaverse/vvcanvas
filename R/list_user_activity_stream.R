@@ -8,11 +8,13 @@
 #' @param per_page Number of activity items to retrieve per page. Default is 100.
 #' @param ... Additional parameters to pass to the API request.
 #'
-#' @return A list of activity stream objects retrieved from the Canvas LMS API. Each object represents a story/activity.
+#' @return A data frame of activity stream objects retrieved from the Canvas LMS API. Each row represents a story/activity. Uses pagination to retrieve all available results.
 #' 
 #' @details
 #' The activity stream returns Canvas "stories" which are activity objects that represent recent user activities.
 #' These may include course activities, announcements, assignment submissions, discussion posts, and other interactions.
+#' 
+#' This function uses pagination to automatically retrieve all available activity stream items across multiple pages.
 #' 
 #' The API endpoint used is: \code{GET /api/v1/users/:user_id/activity_stream}
 #' 
@@ -43,14 +45,16 @@ list_user_activity_stream <- function(canvas, user_id = "self", per_page = 100, 
   # Make the API request
   response <- httr::GET(url, query = query_params, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
   
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve user activity stream. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
   
-  # Parse the response as JSON
-  activity_stream <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Parse and combine all results
+  activity_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  activity_stream <- dplyr::bind_rows(activity_list)
   
   # Return the activity stream
   return(activity_stream)
