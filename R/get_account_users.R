@@ -44,10 +44,16 @@ get_account_users <- function(canvas, account_id, per_page = 100, search_term = 
     stop("Failed to retrieve account users. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  users <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  users_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  users <- dplyr::bind_rows(users_list) %>%
     dplyr::mutate(account_id = account_id)
 
   # Return the users data frame

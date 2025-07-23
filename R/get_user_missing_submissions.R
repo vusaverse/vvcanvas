@@ -40,10 +40,16 @@ get_user_missing_submissions <- function(canvas, user_id, per_page = 100, includ
     stop("Failed to retrieve user missing submissions. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  missing_submissions <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  missing_submissions_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  missing_submissions <- dplyr::bind_rows(missing_submissions_list) %>%
     dplyr::mutate(user_id = user_id)
 
   # Return the missing submissions data frame

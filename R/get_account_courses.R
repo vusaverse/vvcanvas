@@ -53,10 +53,16 @@ get_account_courses <- function(canvas, account_id, per_page = 100, enrollment_t
     stop("Failed to retrieve account courses. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  courses <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  courses_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  courses <- dplyr::bind_rows(courses_list) %>%
     dplyr::mutate(account_id = account_id)
 
   # Return the courses data frame

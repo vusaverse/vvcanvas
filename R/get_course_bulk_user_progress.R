@@ -26,10 +26,16 @@ get_course_bulk_user_progress <- function(canvas, course_id, per_page = 100) {
     stop("Failed to retrieve course bulk user progress. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  progress_data <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  progress_data_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  progress_data <- dplyr::bind_rows(progress_data_list) %>%
     dplyr::mutate(course_id = course_id)
 
   # Return the progress data frame

@@ -27,10 +27,16 @@ get_assignment_gradeable_students <- function(canvas, course_id, assignment_id, 
     stop("Failed to retrieve assignment gradeable students. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  students <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  students_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  students <- dplyr::bind_rows(students_list) %>%
     dplyr::mutate(course_id = course_id, assignment_id = assignment_id)
 
   # Return the students data frame

@@ -31,10 +31,16 @@ get_user_activity_stream <- function(canvas, user_id = "self", per_page = 100, o
     stop("Failed to retrieve user activity stream. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  activity_stream <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  activity_stream_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  activity_stream <- dplyr::bind_rows(activity_stream_list) %>%
     dplyr::mutate(user_id = user_id)
 
   # Return the activity stream data frame

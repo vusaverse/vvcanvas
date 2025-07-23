@@ -26,10 +26,16 @@ get_available_reports <- function(canvas, account_id, per_page = 100) {
     stop("Failed to retrieve available reports. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  reports <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  reports_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  reports <- dplyr::bind_rows(reports_list) %>%
     dplyr::mutate(account_id = account_id)
 
   # Return the reports data frame

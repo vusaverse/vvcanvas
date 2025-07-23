@@ -32,10 +32,16 @@ get_quiz_submissions <- function(canvas, course_id, quiz_id, per_page = 100, inc
     stop("Failed to retrieve quiz submissions. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  submissions <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  submissions_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  submissions <- dplyr::bind_rows(submissions_list) %>%
     dplyr::mutate(course_id = course_id, quiz_id = quiz_id)
 
   # Return the submissions data frame

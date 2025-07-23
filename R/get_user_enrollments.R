@@ -48,10 +48,16 @@ get_user_enrollments <- function(canvas, user_id, per_page = 100, type = NULL,
     stop("Failed to retrieve user enrollments. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  enrollments <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  enrollments_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  enrollments <- dplyr::bind_rows(enrollments_list) %>%
     dplyr::mutate(user_id = user_id)
 
   # Return the enrollments data frame
