@@ -14,7 +14,6 @@
 #'     \item "associations": Include rubric associations
 #'     \item "rubric_assessments": Include rubric assessments
 #'   }
-#' @param per_page The number of rubrics to retrieve per page (default is 100)
 #'
 #' @return A data frame containing course rubric objects with all available metadata
 #'
@@ -53,7 +52,7 @@
 #'
 #' @export
 #'
-list_course_rubrics <- function(canvas, course_id, include = NULL, per_page = 100) {
+list_course_rubrics <- function(canvas, course_id, include = NULL) {
   # Validate inputs
   if (missing(canvas) || !is.list(canvas)) {
     stop("canvas must be a list containing 'base_url' and 'api_key'")
@@ -67,7 +66,7 @@ list_course_rubrics <- function(canvas, course_id, include = NULL, per_page = 10
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/rubrics")
   
   # Build query parameters
-  query_params <- list(per_page = per_page)
+  query_params <- list()
   
   # Handle include parameter
   if (!is.null(include)) {
@@ -84,7 +83,7 @@ list_course_rubrics <- function(canvas, course_id, include = NULL, per_page = 10
     }
   }
   
-  # Make the API request
+  # Make the initial API request
   response <- httr::GET(
     url,
     query = query_params,
@@ -105,21 +104,36 @@ list_course_rubrics <- function(canvas, course_id, include = NULL, per_page = 10
     stop(error_message)
   }
   
-  # Parse the response as JSON
-  rubrics <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+  
+  # Parse and combine all results
+  rubrics_list <- lapply(responses, function(resp) {
+    content <- httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE)
+    
+    # Handle case where content is empty or not a data frame
+    if (length(content) == 0) {
+      return(data.frame())
+    }
+    
+    # Convert to data frame if it's a list
+    if (is.list(content) && !is.data.frame(content)) {
+      content <- dplyr::bind_rows(content)
+    }
+    
+    return(content)
+  })
+  
+  # Combine all results
+  all_rubrics <- dplyr::bind_rows(rubrics_list)
   
   # Handle case where no rubrics are returned
-  if (length(rubrics) == 0 || (is.data.frame(rubrics) && nrow(rubrics) == 0)) {
+  if (nrow(all_rubrics) == 0) {
     message("No rubrics found for course ", course_id)
     return(data.frame())
   }
   
-  # Convert to data frame if it's a list
-  if (is.list(rubrics) && !is.data.frame(rubrics)) {
-    rubrics <- dplyr::bind_rows(rubrics)
-  }
-  
   # Return the data frame of rubrics
-  return(rubrics)
+  return(all_rubrics)
 }

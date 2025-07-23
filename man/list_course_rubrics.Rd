@@ -4,7 +4,7 @@
 \alias{list_course_rubrics}
 \title{List Course Rubrics}
 \usage{
-list_course_rubrics(canvas, course_id, include = NULL, per_page = 100)
+list_course_rubrics(canvas, course_id, include = NULL)
 }
 \arguments{
 \item{canvas}{A list containing Canvas API configuration:
@@ -21,8 +21,6 @@ list_course_rubrics(canvas, course_id, include = NULL, per_page = 100)
     \item "associations": Include rubric associations
     \item "rubric_assessments": Include rubric assessments
   }}
-
-\item{per_page}{The number of rubrics to retrieve per page (default is 100)}
 }
 \value{
 A data frame containing course rubric objects with all available metadata
