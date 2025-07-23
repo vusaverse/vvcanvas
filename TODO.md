@@ -34,7 +34,7 @@
 - [ ]           Update a global notification              AccountNotificationsController#update       ; 
     PUT /api/v1/accounts/:account_id/account_notifications/:id
   
-- [ ]           List Available Reports              AccountReportsController#available_reports       ; 
+- [x]           List Available Reports              AccountReportsController#available_reports       ; 
     GET /api/v1/accounts/:account_id/reports
   
 - [ ]           Start a Report              AccountReportsController#create       ; 
@@ -43,7 +43,7 @@
 - [ ]           Index of Reports              AccountReportsController#index       ; 
     GET /api/v1/accounts/:account_id/reports/:report
   
-- [ ]           Status of a Report              AccountReportsController#show       ; 
+- [x]           Status of a Report              AccountReportsController#show       ; 
     GET /api/v1/accounts/:account_id/reports/:report/:id
   
 - [ ]           Delete a Report              AccountReportsController#destroy       ; 
@@ -58,7 +58,7 @@
 - [ ]           List accounts for course admins              AccountsController#course_accounts       ; 
     GET /api/v1/course_accounts
   
-- [ ]           Get a single account              AccountsController#show       ; 
+- [x]           Get a single account              AccountsController#show       ; 
     GET /api/v1/accounts/:id
   
 - [ ]           Settings              AccountsController#show_settings       ; 
@@ -79,7 +79,7 @@
 - [ ]           Get the manually-created courses sub-account for the domain root account              AccountsController#manually_created_courses_account       ; 
     GET /api/v1/manually_created_courses_account
   
-- [ ]           List active courses in an account              AccountsController#courses_api       ; 
+- [x]           List active courses in an account              AccountsController#courses_api       ; 
     GET /api/v1/accounts/:account_id/courses
   
 - [ ]           Update an account              AccountsController#update       ; 
@@ -760,7 +760,7 @@
 - [x]           List users in course              CoursesController#users       ; 
     GET /api/v1/courses/:course_id/search_users
   
-- [ ]           List recently logged in students              CoursesController#recent_students       ; 
+- [x]           List recently logged in students              CoursesController#recent_students       ; 
     GET /api/v1/courses/:course_id/recent_students
   
 - [ ]           Get single user              CoursesController#user       ; 
@@ -772,10 +772,10 @@
 - [ ]           Preview processed html              CoursesController#preview_html       ; 
     POST /api/v1/courses/:course_id/preview_html
   
-- [ ]           Course activity stream              CoursesController#activity_stream       ; 
+- [x]           Course activity stream              CoursesController#activity_stream       ; 
     GET /api/v1/courses/:course_id/activity_stream
   
-- [ ]           Course activity stream summary              CoursesController#activity_stream_summary       ; 
+- [x]           Course activity stream summary              CoursesController#activity_stream_summary       ; 
     GET /api/v1/courses/:course_id/activity_stream/summary
   
 - [ ]           Course TODO items              CoursesController#todo_items       ; 
@@ -814,7 +814,7 @@
 - [ ]           Permissions              CoursesController#permissions       ; 
     GET /api/v1/courses/:course_id/permissions
   
-- [ ]           Get bulk user progress              CoursesController#bulk_user_progress       ; 
+- [x]           Get bulk user progress              CoursesController#bulk_user_progress       ; 
     GET /api/v1/courses/:course_id/bulk_user_progress
   
 - [ ]           Remove quiz migration alert              CoursesController#dismiss_migration_limitation_msg       ; 
@@ -892,10 +892,10 @@
 - [ ]           Delete an entry              DiscussionEntriesController#destroy       ; 
     DELETE /api/v1/groups/:group_id/discussion_topics/:topic_id/entries/:id
   
-- [ ]           Get a single topic              DiscussionTopicsApiController#show       ; 
+- [x]           Get a single topic              DiscussionTopicsApiController#show       ; 
     GET /api/v1/courses/:course_id/discussion_topics/:topic_id
   
-- [ ]           Get a single topic              DiscussionTopicsApiController#show       ; 
+- [x]           Get a single topic              DiscussionTopicsApiController#show       ; 
     GET /api/v1/groups/:group_id/discussion_topics/:topic_id
   
 - [ ]           Get the full topic              DiscussionTopicsApiController#view       ; 
@@ -916,10 +916,10 @@
 - [ ]           Duplicate discussion topic              DiscussionTopicsApiController#duplicate       ; 
     POST /api/v1/groups/:group_id/discussion_topics/:topic_id/duplicate
   
-- [ ]           List topic entries              DiscussionTopicsApiController#entries       ; 
+- [x]           List topic entries              DiscussionTopicsApiController#entries       ; 
     GET /api/v1/courses/:course_id/discussion_topics/:topic_id/entries
   
-- [ ]           List topic entries              DiscussionTopicsApiController#entries       ; 
+- [x]           List topic entries              DiscussionTopicsApiController#entries       ; 
     GET /api/v1/groups/:group_id/discussion_topics/:topic_id/entries
   
 - [ ]           Post a reply              DiscussionTopicsApiController#add_reply       ; 
@@ -2251,7 +2251,7 @@
 - [ ]           Send a message to unsubmitted or submitted users for the quiz              Quizzes::QuizSubmissionUsersController#message       ; 
     POST /api/v1/courses/:course_id/quizzes/:id/submission_users/message
   
-- [ ]           Get all quiz submissions.              Quizzes::QuizSubmissionsApiController#index       ; 
+- [x]           Get all quiz submissions.              Quizzes::QuizSubmissionsApiController#index       ; 
     GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions
   
 - [ ]           Get the quiz submission.              Quizzes::QuizSubmissionsApiController#submission       ; 
@@ -2275,7 +2275,7 @@
 - [x]           List quizzes in a course              Quizzes::QuizzesApiController#index       ; 
     GET /api/v1/courses/:course_id/quizzes
   
-- [ ]           Get a single quiz              Quizzes::QuizzesApiController#show       ; 
+- [x]           Get a single quiz              Quizzes::QuizzesApiController#show       ; 
     GET /api/v1/courses/:course_id/quizzes/:id
   
 - [ ]           Create a quiz              Quizzes::QuizzesApiController#create       ; 
@@ -2461,7 +2461,7 @@
 - [x]           List assignment submissions              SubmissionsApiController#index       ; 
     GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions
   
-- [ ]           List assignment submissions              SubmissionsApiController#index       ; 
+- [x]           List assignment submissions              SubmissionsApiController#index       ; 
     GET /api/v1/sections/:section_id/assignments/:assignment_id/submissions
   
 - [ ]           List submissions for multiple assignments              SubmissionsApiController#for_students       ; 
@@ -2500,7 +2500,7 @@
 - [ ]           Grade or comment on a submission by anonymous id              SubmissionsApiController#update_anonymous       ; 
     PUT /api/v1/sections/:section_id/assignments/:assignment_id/anonymous_submissions/:anonymous_id
   
-- [ ]           List gradeable students              SubmissionsApiController#gradeable_students       ; 
+- [x]           List gradeable students              SubmissionsApiController#gradeable_students       ; 
     GET /api/v1/courses/:course_id/assignments/:assignment_id/gradeable_students
   
 - [ ]           List multiple assignments gradeable students              SubmissionsApiController#multiple_gradeable_students       ; 
@@ -2629,13 +2629,13 @@
 - [ ]           Create observer pairing code              ObserverPairingCodesApiController#create       ; 
     POST /api/v1/users/:user_id/observer_pairing_codes
   
-- [ ]           List users in account              UsersController#api_index       ; 
+- [x]           List users in account              UsersController#api_index       ; 
     GET /api/v1/accounts/:account_id/users
   
-- [ ]           List the activity stream              UsersController#activity_stream       ; 
+- [x]           List the activity stream              UsersController#activity_stream       ; 
     GET /api/v1/users/self/activity_stream
   
-- [ ]           List the activity stream              UsersController#activity_stream       ; 
+- [x]           List the activity stream              UsersController#activity_stream       ; 
     GET /api/v1/users/activity_stream
   
 - [ ]           Activity stream summary              UsersController#activity_stream_summary       ; 
@@ -2650,7 +2650,7 @@
 - [ ]           List upcoming assignments, calendar events              UsersController#upcoming_events       ; 
     GET /api/v1/users/self/upcoming_events
   
-- [ ]           List Missing Submissions              UsersController#missing_submissions       ; 
+- [x]           List Missing Submissions              UsersController#missing_submissions       ; 
     GET /api/v1/users/:user_id/missing_submissions
   
 - [ ]           Hide a stream item              UsersController#ignore_stream_item       ; 
@@ -2662,7 +2662,7 @@
 - [ ]           Upload a file              UsersController#create_file       ; 
     POST /api/v1/users/:user_id/files
   
-- [ ]           Show user details              UsersController#api_show       ; 
+- [x]           Show user details              UsersController#api_show       ; 
     GET /api/v1/users/:id
   
 - [ ]           Create a user              UsersController#create       ; 
