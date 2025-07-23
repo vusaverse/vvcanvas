@@ -1336,3 +1336,10 @@ reference:
 #   - show_single_webhook_subscription
 #   - update_webhook_subscription
 #   - list_all_webhook_subscriptions
+- title: Internal helpers
+  desc: >
+    Internal pagination helpers for Canvas API requests.
+  contents:
+  - paginate
+  - extract_next_url
+  - append_access_token
