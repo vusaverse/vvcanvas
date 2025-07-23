@@ -21,9 +21,16 @@ get_account_rubrics <- function(canvas, account_id, per_page = 100) {
     stop("Failed to retrieve account rubrics. Please check your authentication and API endpoint.")
   }
 
-  # Parse the response as JSON
-  rubrics <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+
+  # Parse and combine all results
+  rubrics_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  rubrics <- dplyr::bind_rows(rubrics_list)
 
   # Return the list of rubrics
   return(rubrics)
