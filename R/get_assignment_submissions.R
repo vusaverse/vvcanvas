@@ -22,21 +22,20 @@ get_assignment_submissions <- function(canvas, course_id, assignment_id = NULL, 
     # and fall back to iterating through assignments if it fails
     url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/students/submissions?per_page=", per_page)
     
-    # Make the API request
-    response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
-    
-    # Check the response status code
-    if (httr::status_code(response) == 200) {
-      # Parse the response as JSON
-      submissions <- httr::content(response, "text", encoding = "UTF-8") %>%
+      # Make the API request
+      response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
+
+    # Use pagination helper to get all pages
+    responses <- paginate(response, canvas$api_key)
+
+    # Parse and combine all results
+    submissions_list <- lapply(responses, function(resp) {
+      httr::content(resp, "text", encoding = "UTF-8") %>%
         jsonlite::fromJSON(flatten = TRUE) %>%
-        tidyr::unnest(names_sep = ".")
-      
-      return(submissions)
-    } else {
-      # If the students/submissions endpoint fails, fall back to getting assignments first
-      # and then their submissions
-      stop("Failed to retrieve assignment submissions. The '/students/submissions' endpoint is not available. Please use the assignment_id parameter to get submissions for a specific assignment, or use the get_submissions() function.")
-    }
-  }
+        as.data.frame()
+    })
+    submissions <- dplyr::bind_rows(submissions_list)
+
+    # Return the data frame of submissions
+    return(submissions)
 }
