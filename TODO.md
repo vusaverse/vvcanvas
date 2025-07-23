@@ -2347,6 +2347,9 @@
 - [ ]           Delete a single rubric assessment              RubricAssessmentsController#destroy       ; 
     DELETE /api/v1/courses/:course_id/rubric_associations/:rubric_association_id/rubric_assessments/:id
   
+- [x]           List assignment rubric assessments              AssignmentsApiController#rubric_assessments       ; 
+    GET /api/v1/courses/:course_id/assignments/:assignment_id/rubric_assessments
+  
 - [ ]           Create a RubricAssociation              RubricAssociationsController#create       ; 
     POST /api/v1/courses/:course_id/rubric_associations
   
