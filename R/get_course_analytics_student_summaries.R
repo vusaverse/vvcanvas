@@ -3,7 +3,7 @@
 #' Retrieves detailed per-student analytics including participation, page views, 
 #' submissions, and other engagement metrics for a specific course from the Canvas LMS API. 
 #' This function provides enhanced filtering and sorting capabilities compared to the basic 
-#' \code{\link{get_student_summaries}} function.
+#' \code{\link{get_student_summaries}} function. All pages of data are automatically retrieved.
 #'
 #' @param canvas A list containing the 'api_key' and 'base_url' for authentication.
 #' @param course_id The ID of the course for which to retrieve student summary analytics.
@@ -12,6 +12,7 @@
 #' @param student_id Optional character or integer specifying a specific student ID to filter results. 
 #'   Default is NULL (all students).
 #' @param per_page Number of student summaries to retrieve per page. Default is 100.
+#'   The function automatically retrieves all pages of data.
 #'
 #' @return A data frame containing per-student analytics with columns for student information,
 #'   participation counts, page views, submissions, and max values for benchmarking.
@@ -32,11 +33,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Basic usage - get all student summaries
+#' # Basic usage - get all student summaries for a course
 #' canvas <- list(api_key = "your_api_key", base_url = "https://your-institution.instructure.com")
 #' summaries <- get_course_analytics_student_summaries(canvas, course_id = 12345)
 #' 
-#' # Sort by participation count
+#' # Sort by participation count (all pages retrieved automatically)
 #' summaries_sorted <- get_course_analytics_student_summaries(
 #'   canvas, 
 #'   course_id = 12345, 
@@ -50,8 +51,8 @@
 #'   student_id = 67890
 #' )
 #' 
-#' # Combine sorting and pagination
-#' page1 <- get_course_analytics_student_summaries(
+#' # Customize page size (all pages still retrieved automatically)
+#' summaries_custom <- get_course_analytics_student_summaries(
 #'   canvas, 
 #'   course_id = 12345, 
 #'   sort_column = "page_views", 
@@ -89,80 +90,56 @@ get_course_analytics_student_summaries <- function(canvas, course_id, sort_colum
   }
   
   # Construct the API endpoint URL
-  url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/analytics/student_summaries")
+  url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/analytics/student_summaries?per_page=", per_page)
   
-  # Build query parameters
-  params <- list(per_page = per_page)
-  
+  # Append optional query parameters
   if (!is.null(sort_column)) {
-    params$sort_column <- sort_column
+    url <- paste0(url, "&sort_column=", utils::URLencode(sort_column, reserved = TRUE))
   }
   
   if (!is.null(student_id)) {
-    params$student_id <- student_id
-  }
-  
-  # Add query parameters to URL
-  if (length(params) > 0) {
-    param_strings <- paste0(names(params), "=", sapply(params, utils::URLencode, reserved = TRUE))
-    query_string <- paste(param_strings, collapse = "&")
-    url <- paste0(url, "?", query_string)
+    url <- paste0(url, "&student_id=", student_id)
   }
   
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
   
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    error_message <- paste0("Failed to retrieve course analytics student summaries. HTTP status: ", 
-                           httr::status_code(response))
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+  
+  # Parse and combine all results
+  analytics_list <- lapply(responses, function(resp) {
+    result <- httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE)
     
-    # Try to extract error details from response
-    if (httr::has_content(response)) {
-      tryCatch({
-        error_content <- httr::content(response, "text", encoding = "UTF-8")
-        error_json <- jsonlite::fromJSON(error_content)
-        if ("message" %in% names(error_json)) {
-          error_message <- paste0(error_message, ". Error: ", error_json$message)
+    # Convert to data frame if it's a list (for consistency with other analytics functions)
+    if (is.list(result) && !is.data.frame(result)) {
+      # Handle case where API returns an object with data and metadata
+      if ("data" %in% names(result)) {
+        result <- result$data
+        if (is.list(result) && length(result) > 0) {
+          result <- data.frame(result, stringsAsFactors = FALSE)
         }
-      }, error = function(e) {
-        # If we can't parse the error, just use the generic message
-      })
+      } else {
+        # Convert list to data frame
+        if (length(result) > 0) {
+          result <- tryCatch({
+            data.frame(result, stringsAsFactors = FALSE)
+          }, error = function(e) {
+            # If conversion fails, return as-is
+            result
+          })
+        } else {
+          result <- data.frame()  # Empty data frame for consistency
+        }
+      }
     }
     
-    error_message <- paste0(error_message, ". Please check your authentication, course_id, and API endpoint.")
-    stop(error_message)
-  }
+    return(result)
+  })
   
-  # Parse the response as JSON
-  student_analytics <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
-  
-  # Convert to data frame if it's a list (for consistency with other analytics functions)
-  if (is.list(student_analytics) && !is.data.frame(student_analytics)) {
-    # Handle case where API returns an object with data and metadata
-    if ("data" %in% names(student_analytics)) {
-      result <- student_analytics$data
-      if (is.list(result) && length(result) > 0) {
-        result <- data.frame(result, stringsAsFactors = FALSE)
-      }
-    } else {
-      # Convert list to data frame
-      if (length(student_analytics) > 0) {
-        result <- tryCatch({
-          data.frame(student_analytics, stringsAsFactors = FALSE)
-        }, error = function(e) {
-          # If conversion fails, return as-is
-          student_analytics
-        })
-      } else {
-        result <- data.frame()  # Empty data frame for consistency
-      }
-    }
-  } else {
-    result <- student_analytics
-  }
+  student_analytics <- dplyr::bind_rows(analytics_list)
   
   # Return the student analytics data
-  return(result)
+  return(student_analytics)
 }

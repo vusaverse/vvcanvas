@@ -23,7 +23,8 @@ Common options include "name", "participations", "page_views". Default is NULL (
 \item{student_id}{Optional character or integer specifying a specific student ID to filter results. 
 Default is NULL (all students).}
 
-\item{per_page}{Number of student summaries to retrieve per page. Default is 100.}
+\item{per_page}{Number of student summaries to retrieve per page. Default is 100.
+The function automatically retrieves all pages of data.}
 }
 \value{
 A data frame containing per-student analytics with columns for student information,
@@ -34,7 +35,7 @@ The structure matches other analytics functions in this package.
 Retrieves detailed per-student analytics including participation, page views, 
 submissions, and other engagement metrics for a specific course from the Canvas LMS API. 
 This function provides enhanced filtering and sorting capabilities compared to the basic 
-\code{\link{get_student_summaries}} function.
+\code{\link{get_student_summaries}} function. All pages of data are automatically retrieved.
 }
 \details{
 This function calls the Canvas Analytics API endpoint:
@@ -51,11 +52,11 @@ The returned data includes:
 }
 \examples{
 \dontrun{
-# Basic usage - get all student summaries
+# Basic usage - get all student summaries for a course
 canvas <- list(api_key = "your_api_key", base_url = "https://your-institution.instructure.com")
 summaries <- get_course_analytics_student_summaries(canvas, course_id = 12345)
 
-# Sort by participation count
+# Sort by participation count (all pages retrieved automatically)
 summaries_sorted <- get_course_analytics_student_summaries(
   canvas, 
   course_id = 12345, 
@@ -69,8 +70,8 @@ student_data <- get_course_analytics_student_summaries(
   student_id = 67890
 )
 
-# Combine sorting and pagination
-page1 <- get_course_analytics_student_summaries(
+# Customize page size (all pages still retrieved automatically)
+summaries_custom <- get_course_analytics_student_summaries(
   canvas, 
   course_id = 12345, 
   sort_column = "page_views", 
