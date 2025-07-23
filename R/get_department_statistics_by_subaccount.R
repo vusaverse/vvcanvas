@@ -28,14 +28,16 @@ get_department_statistics_by_subaccount <- function(canvas, account_id, type = "
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
 
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve department-level statistics. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
 
-  # Parse the response as JSON
-  statistics <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Parse and combine all results
+  statistics_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  statistics <- dplyr::bind_rows(statistics_list)
 
   # Return the statistics
   return(statistics)

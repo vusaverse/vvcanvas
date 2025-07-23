@@ -17,14 +17,16 @@ get_course_pages <- function(canvas, course_id, per_page = 100) {
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
 
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve course pages. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
 
-  # Parse the response as JSON
-  pages <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Parse and combine all results
+  pages_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  pages <- dplyr::bind_rows(pages_list)
 
   pages <- pages %>%
     dplyr::mutate(page_body = purrr::map_chr(.data$page_id, ~get_page_content(canvas, course_id, .x)))

@@ -178,16 +178,16 @@
 - [ ]           Delete an external feed              ExternalFeedsController#destroy       ; 
     DELETE /api/v1/groups/:group_id/external_feeds/:external_feed_id
   
-- [ ]           List announcements              AnnouncementsApiController#index       ; 
+- [x]           List announcements              AnnouncementsApiController#index       ; 
     GET /api/v1/announcements
   
 - [ ]           List scopes              ScopesApiController#index       ; 
     GET /api/v1/accounts/:account_id/scopes
   
-- [ ]           List appointment groups              AppointmentGroupsController#index       ; 
+- [x]           List appointment groups              AppointmentGroupsController#index       ; 
     GET /api/v1/appointment_groups
   
-- [ ]           Create an appointment group              AppointmentGroupsController#create       ; 
+- [x]           Create an appointment group              AppointmentGroupsController#create       ; 
     POST /api/v1/appointment_groups
   
 - [ ]           Get a single appointment group              AppointmentGroupsController#show       ; 
@@ -211,7 +211,7 @@
 - [ ]           Set extensions for student assignment submissions              AssignmentExtensionsController#create       ; 
     POST /api/v1/courses/:course_id/assignments/:assignment_id/extensions
   
-- [ ]           List assignment groups              AssignmentGroupsController#index       ; 
+- [x]           List assignment groups              AssignmentGroupsController#index       ; 
     GET /api/v1/courses/:course_id/assignment_groups
   
 - [ ]           Get an Assignment Group              AssignmentGroupsApiController#show       ; 
@@ -232,7 +232,7 @@
 - [x]           List assignments              AssignmentsApiController#index       ; 
     GET /api/v1/courses/:course_id/assignments
   
-- [ ]           List assignments              AssignmentsApiController#index       ; 
+- [x]           List assignments              AssignmentsApiController#index       ; 
     GET /api/v1/courses/:course_id/assignment_groups/:assignment_group_id/assignments
   
 - [ ]           List assignments for user              AssignmentsApiController#user_index       ; 
@@ -241,7 +241,7 @@
 - [ ]           Duplicate assignnment              AssignmentsApiController#duplicate       ; 
     POST /api/v1/courses/:course_id/assignments/:assignment_id/duplicate
   
-- [ ]           Get a single assignment              AssignmentsApiController#show       ; 
+- [x]           Get a single assignment              AssignmentsApiController#show       ; 
     GET /api/v1/courses/:course_id/assignments/:id
   
 - [ ]           Create an assignment              AssignmentsApiController#create       ; 
@@ -739,7 +739,7 @@
 - [x]           List your courses              CoursesController#index       ; 
     GET /api/v1/courses
   
-- [ ]           List courses for a user              CoursesController#user_index       ; 
+- [x]           List courses for a user              CoursesController#user_index       ; 
     GET /api/v1/users/:user_id/courses
   
 - [ ]           Get user progress              CoursesController#user_progress       ; 
@@ -748,16 +748,16 @@
 - [ ]           Create a new course              CoursesController#create       ; 
     POST /api/v1/accounts/:account_id/courses
   
-- [ ]           Upload a file              CoursesController#create_file       ; 
+- [x]           Upload a file              CoursesController#create_file       ; 
     POST /api/v1/courses/:course_id/files
   
 - [x]           List students              CoursesController#students       ; 
     GET /api/v1/courses/:course_id/students
   
-- [ ]           List users in course              CoursesController#users       ; 
+- [x]           List users in course              CoursesController#users       ; 
     GET /api/v1/courses/:course_id/users
   
-- [ ]           List users in course              CoursesController#users       ; 
+- [x]           List users in course              CoursesController#users       ; 
     GET /api/v1/courses/:course_id/search_users
   
 - [ ]           List recently logged in students              CoursesController#recent_students       ; 
@@ -793,10 +793,10 @@
 - [ ]           Return test student for course              CoursesController#student_view_student       ; 
     GET /api/v1/courses/:course_id/student_view_student
   
-- [ ]           Get a single course              CoursesController#show       ; 
+- [x]           Get a single course              CoursesController#show       ; 
     GET /api/v1/courses/:id
   
-- [ ]           Get a single course              CoursesController#show       ; 
+- [x]           Get a single course              CoursesController#show       ; 
     GET /api/v1/accounts/:account_id/courses/:id
   
 - [ ]           Update a course              CoursesController#update       ; 
@@ -1003,19 +1003,19 @@
 - [ ]           Delete enrollment term              TermsController#destroy       ; 
     DELETE /api/v1/accounts/:account_id/terms/:id
   
-- [ ]           List enrollment terms              TermsApiController#index       ; 
+- [x]           List enrollment terms              TermsApiController#index       ; 
     GET /api/v1/accounts/:account_id/terms
   
-- [ ]           Retrieve enrollment term              TermsApiController#show       ; 
+- [x]           Retrieve enrollment term              TermsApiController#show       ; 
     GET /api/v1/accounts/:account_id/terms/:id
   
 - [x]           List enrollments              EnrollmentsApiController#index       ; 
     GET /api/v1/courses/:course_id/enrollments
   
-- [ ]           List enrollments              EnrollmentsApiController#index       ; 
+- [x]           List enrollments              EnrollmentsApiController#index       ; 
     GET /api/v1/sections/:section_id/enrollments
   
-- [ ]           List enrollments              EnrollmentsApiController#index       ; 
+- [x]           List enrollments              EnrollmentsApiController#index       ; 
     GET /api/v1/users/:user_id/enrollments
   
 - [ ]           Enrollment by ID              EnrollmentsApiController#show       ; 
@@ -1210,13 +1210,13 @@
 - [x]           List files              FilesController#api_index       ; 
     GET /api/v1/courses/:course_id/files
   
-- [ ]           List files              FilesController#api_index       ; 
+- [x]           List files              FilesController#api_index       ; 
     GET /api/v1/users/:user_id/files
   
-- [ ]           List files              FilesController#api_index       ; 
+- [x]           List files              FilesController#api_index       ; 
     GET /api/v1/groups/:group_id/files
   
-- [ ]           List files              FilesController#api_index       ; 
+- [x]           List files              FilesController#api_index       ; 
     GET /api/v1/folders/:id/files
   
 - [ ]           Get public inline preview url              FilesController#public_url       ; 
@@ -1252,61 +1252,61 @@
 - [ ]           Reset link verifier              FilesController#reset_verifier       ; 
     POST /api/v1/files/:id/reset_verifier
   
-- [ ]           List folders              FoldersController#api_index       ; 
+- [x]           List folders              FoldersController#api_index       ; 
     GET /api/v1/folders/:id/folders
   
 - [x]           List all folders              FoldersController#list_all_folders       ; 
     GET /api/v1/courses/:course_id/folders
   
-- [ ]           List all folders              FoldersController#list_all_folders       ; 
+- [x]           List all folders              FoldersController#list_all_folders       ; 
     GET /api/v1/users/:user_id/folders
   
-- [ ]           List all folders              FoldersController#list_all_folders       ; 
+- [x]           List all folders              FoldersController#list_all_folders       ; 
     GET /api/v1/groups/:group_id/folders
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/courses/:course_id/folders/by_path/*full_path
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/courses/:course_id/folders/by_path
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/users/:user_id/folders/by_path/*full_path
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/users/:user_id/folders/by_path
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/groups/:group_id/folders/by_path/*full_path
   
-- [ ]           Resolve path              FoldersController#resolve_path       ; 
+- [x]           Resolve path              FoldersController#resolve_path       ; 
     GET /api/v1/groups/:group_id/folders/by_path
   
-- [ ]           Get folder              FoldersController#show       ; 
+- [x]           Get folder              FoldersController#show       ; 
     GET /api/v1/courses/:course_id/folders/:id
   
-- [ ]           Get folder              FoldersController#show       ; 
+- [x]           Get folder              FoldersController#show       ; 
     GET /api/v1/users/:user_id/folders/:id
   
-- [ ]           Get folder              FoldersController#show       ; 
+- [x]           Get folder              FoldersController#show       ; 
     GET /api/v1/groups/:group_id/folders/:id
   
-- [ ]           Get folder              FoldersController#show       ; 
+- [x]           Get folder              FoldersController#show       ; 
     GET /api/v1/folders/:id
   
-- [ ]           Update folder              FoldersController#update       ; 
+- [x]           Update folder              FoldersController#update       ; 
     PUT /api/v1/folders/:id
   
 - [x]           Create folder              FoldersController#create       ; 
     POST /api/v1/courses/:course_id/folders
   
-- [ ]           Create folder              FoldersController#create       ; 
+- [x]           Create folder              FoldersController#create       ; 
     POST /api/v1/users/:user_id/folders
   
-- [ ]           Create folder              FoldersController#create       ; 
+- [x]           Create folder              FoldersController#create       ; 
     POST /api/v1/groups/:group_id/folders
   
-- [ ]           Create folder              FoldersController#create       ; 
+- [x]           Create folder              FoldersController#create       ; 
     POST /api/v1/folders/:folder_id/folders
   
 - [ ]           Delete folder              FoldersController#api_destroy       ; 
@@ -1321,7 +1321,7 @@
 - [ ]           Copy a folder              FoldersController#copy_folder       ; 
     POST /api/v1/folders/:dest_folder_id/copy_folder
   
-- [ ]           Get uploaded media folder for user              FoldersController#media_folder       ; 
+- [x]           Get uploaded media folder for user              FoldersController#media_folder       ; 
     GET /api/v1/courses/:course_id/folders/media
   
 - [ ]           Get uploaded media folder for user              FoldersController#media_folder       ; 
@@ -1435,7 +1435,7 @@
 - [ ]           Get a single grading standard in a context.              GradingStandardsApiController#context_show       ; 
     GET /api/v1/accounts/:account_id/grading_standards/:grading_standard_id
   
-- [ ]           List group categories for a context              GroupCategoriesController#index       ; 
+- [x]           List group categories for a context              GroupCategoriesController#index       ; 
     GET /api/v1/accounts/:account_id/group_categories
   
 - [x]           List group categories for a context              GroupCategoriesController#index       ; 
@@ -1669,7 +1669,7 @@
 - [ ]           Show module              ContextModulesApiController#show       ; 
     GET /api/v1/courses/:course_id/modules/:id
   
-- [ ]           Create a module              ContextModulesApiController#create       ; 
+- [x]           Create a module              ContextModulesApiController#create       ; 
     POST /api/v1/courses/:course_id/modules
   
 - [ ]           Update a module              ContextModulesApiController#update       ; 
@@ -1687,7 +1687,7 @@
 - [ ]           Show module item              ContextModuleItemsApiController#show       ; 
     GET /api/v1/courses/:course_id/modules/:module_id/items/:id
   
-- [ ]           Create a module item              ContextModuleItemsApiController#create       ; 
+- [x]           Create a module item              ContextModuleItemsApiController#create       ; 
     POST /api/v1/courses/:course_id/modules/:module_id/items
   
 - [ ]           Update a module item              ContextModuleItemsApiController#update       ; 
@@ -1723,7 +1723,7 @@
 - [ ]           Create a quiz item           ; 
     POST /api/quiz/v1/courses/:course_id/quizzes/:assignment_id/items
   
-- [ ]           Update a quiz item           ; 
+- [x]           Update a quiz item           ; 
     PATCH /api/quiz/v1/courses/:course_id/quizzes/:assignment_id/items/:item_id
   
 - [ ]           Delete a quiz item           ; 
@@ -1945,10 +1945,10 @@
 - [ ]           Duplicate page              WikiPagesApiController#duplicate       ; 
     POST /api/v1/courses/:course_id/pages/:url_or_id/duplicate
   
-- [ ]           Update/create front page              WikiPagesApiController#update_front_page       ; 
+- [x]           Update/create front page              WikiPagesApiController#update_front_page       ; 
     PUT /api/v1/courses/:course_id/front_page
   
-- [ ]           Update/create front page              WikiPagesApiController#update_front_page       ; 
+- [x]           Update/create front page              WikiPagesApiController#update_front_page       ; 
     PUT /api/v1/groups/:group_id/front_page
   
 - [x]           List pages              WikiPagesApiController#index       ; 
@@ -1963,19 +1963,19 @@
 - [ ]           Create page              WikiPagesApiController#create       ; 
     POST /api/v1/groups/:group_id/pages
   
-- [ ]           Show page              WikiPagesApiController#show       ; 
+- [x]           Show page              WikiPagesApiController#show       ; 
     GET /api/v1/courses/:course_id/pages/:url_or_id
   
-- [ ]           Show page              WikiPagesApiController#show       ; 
+- [x]           Show page              WikiPagesApiController#show       ; 
     GET /api/v1/groups/:group_id/pages/:url_or_id
   
-- [ ]           Update/create page              WikiPagesApiController#update       ; 
+- [x]           Update/create page              WikiPagesApiController#update       ; 
     PUT /api/v1/courses/:course_id/pages/:url_or_id
   
-- [ ]           Update/create page              WikiPagesApiController#update       ; 
+- [x]           Update/create page              WikiPagesApiController#update       ; 
     PUT /api/v1/groups/:group_id/pages/:url_or_id
   
-- [ ]           Delete page              WikiPagesApiController#destroy       ; 
+- [x]           Delete page              WikiPagesApiController#destroy       ; 
     DELETE /api/v1/courses/:course_id/pages/:url_or_id
   
 - [ ]           Delete page              WikiPagesApiController#destroy       ; 
@@ -2272,7 +2272,7 @@
 - [ ]           Get current quiz submission times.              Quizzes::QuizSubmissionsApiController#time       ; 
     GET /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id/time
   
-- [ ]           List quizzes in a course              Quizzes::QuizzesApiController#index       ; 
+- [x]           List quizzes in a course              Quizzes::QuizzesApiController#index       ; 
     GET /api/v1/courses/:course_id/quizzes
   
 - [ ]           Get a single quiz              Quizzes::QuizzesApiController#show       ; 
@@ -2299,7 +2299,7 @@
 - [ ]           Show a Result              Lti::Ims::ResultsController#show       ; 
     GET /api/lti/courses/:course_id/line_items/:line_item_id/results/:id
   
-- [ ]           List roles              RoleOverridesController#api_index       ; 
+- [x]           List roles              RoleOverridesController#api_index       ; 
     GET /api/v1/accounts/:account_id/roles
   
 - [ ]           Get a single role              RoleOverridesController#show       ; 
@@ -2380,10 +2380,10 @@
 - [ ]           De-cross-list a Section              SectionsController#uncrosslist       ; 
     DELETE /api/v1/sections/:id/crosslist
   
-- [ ]           Edit a section              SectionsController#update       ; 
+- [x]           Edit a section              SectionsController#update       ; 
     PUT /api/v1/sections/:id
   
-- [ ]           Get section information              SectionsController#show       ; 
+- [x]           Get section information              SectionsController#show       ; 
     GET /api/v1/courses/:course_id/sections/:id
   
 - [x]           Get section information              SectionsController#show       ; 
@@ -2458,7 +2458,7 @@
 - [ ]           Submit an assignment              SubmissionsController#create       ; 
     POST /api/v1/sections/:section_id/assignments/:assignment_id/submissions
   
-- [ ]           List assignment submissions              SubmissionsApiController#index       ; 
+- [x]           List assignment submissions              SubmissionsApiController#index       ; 
     GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions
   
 - [ ]           List assignment submissions              SubmissionsApiController#index       ; 
