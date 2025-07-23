@@ -25,24 +25,34 @@ get_submissions <- function(canvas, course_id, type, id, per_page = 100) {
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
   
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve submissions. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
   
-  # Parse the response as JSON
-  content_text <- httr::content(response, "text", encoding = "UTF-8")
-  
-  if (type == "quizzes") {
-    # For quizzes, the response structure is different - need to access the first element
-    submissions <- jsonlite::fromJSON(content_text, flatten = TRUE)
-    if (is.list(submissions) && length(submissions) > 0) {
-      submissions <- submissions[[1]]
+  # Parse and combine all results
+  submissions_list <- lapply(responses, function(resp) {
+    content_text <- httr::content(resp, "text", encoding = "UTF-8")
+    
+    if (type == "quizzes") {
+      # For quizzes, the response structure is different - need to access the first element
+      submissions <- jsonlite::fromJSON(content_text, flatten = TRUE)
+      if (is.list(submissions) && length(submissions) > 0) {
+        submissions <- submissions[[1]]
+      }
+    } else {
+      # For assignments, parse normally
+      submissions <- jsonlite::fromJSON(content_text, flatten = TRUE)
     }
-  } else {
-    # For assignments, parse normally
-    submissions <- jsonlite::fromJSON(content_text, flatten = TRUE)
-  }
+    
+    # Convert to data frame if not already
+    if (length(submissions) > 0 && !is.data.frame(submissions)) {
+      submissions <- as.data.frame(submissions)
+    }
+    
+    return(submissions)
+  })
+  
+  # Combine all submissions
+  submissions <- dplyr::bind_rows(submissions_list)
   
   # Return the submissions data
   return(submissions)
