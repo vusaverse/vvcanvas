@@ -151,6 +151,9 @@
 - [x]           Get course-level student summary data           ; 
     GET /api/v1/courses/:course_id/analytics/student_summaries
   
+- [x]           Get course-level student summary data (enhanced with sorting/filtering)           ; 
+    GET /api/v1/courses/:course_id/analytics/student_summaries
+  
 - [x]           Get user-in-a-course-level participation data           ; 
     GET /api/v1/courses/:course_id/analytics/users/:student_id/activity
   
