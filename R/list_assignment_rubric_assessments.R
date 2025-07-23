@@ -32,62 +32,35 @@
 #' @export
 #'
 list_assignment_rubric_assessments <- function(canvas, course_id, assignment_id, style = NULL, per_page = 100) {
-  # Initialize an empty data frame to store all assessments
-  all_assessments <- data.frame()
+  # Construct the API endpoint URL
+  url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/assignments/", assignment_id, "/rubric_assessments?per_page=", per_page)
   
-  # Start with the first page
-  page <- 1
+  # Add style parameter if provided
+  if (!is.null(style)) {
+    url <- paste0(url, "&style=", style)
+  }
   
-  # Loop until all pages have been fetched
-  while (TRUE) {
-    # Construct the API endpoint URL
-    url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/assignments/", assignment_id, "/rubric_assessments")
-    
-    # Prepare query parameters
-    query_params <- list(per_page = per_page, page = page)
-    
-    # Add style parameter if provided
-    if (!is.null(style)) {
-      query_params$style <- style
-    }
-    
-    # Make the API request
-    response <- httr::GET(
-      url,
-      query = query_params,
-      httr::add_headers(Authorization = paste("Bearer", canvas$api_key))
-    )
-    
-    # Check the response status code
-    if (httr::status_code(response) != 200) {
-      stop("Failed to retrieve rubric assessments. Status code: ", httr::status_code(response), 
-           ". Please check your authentication, course_id, assignment_id, and API endpoint.")
-    }
-    
-    # Parse the response as JSON
-    assessments <- httr::content(response, "text", encoding = "UTF-8") %>%
+  # Make the initial API request
+  response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
+  
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
+  
+  # Parse and combine all results
+  assessments_list <- lapply(responses, function(resp) {
+    content <- httr::content(resp, "text", encoding = "UTF-8") %>%
       jsonlite::fromJSON(flatten = TRUE)
     
-    # Check if we have assessment data
-    if (length(assessments) > 0 && is.data.frame(assessments)) {
-      # Append the assessments to the accumulated data frame
-      all_assessments <- dplyr::bind_rows(all_assessments, assessments)
-      
-      # Print progress message
-      message("Fetched ", nrow(assessments), " rubric assessments from page ", page)
-      
-      # Increment the page counter
-      page <- page + 1
-      
-      # If we got fewer results than per_page, we've reached the end
-      if (nrow(assessments) < per_page) {
-        break
-      }
+    # Handle case where content might be empty or not a data frame
+    if (length(content) > 0 && (is.data.frame(content) || is.list(content))) {
+      return(as.data.frame(content))
     } else {
-      # Break the loop if there are no more assessments
-      break
+      return(data.frame())
     }
-  }
+  })
+  
+  # Combine all results
+  all_assessments <- dplyr::bind_rows(assessments_list)
   
   # Return the data frame of all rubric assessments
   return(all_assessments)
