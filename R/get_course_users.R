@@ -22,15 +22,16 @@ get_course_users <- function(canvas, course_id, per_page = 100, include = c("enr
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
 
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve course users. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
 
-  # Parse the response as JSON
-  users <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Parse and combine all results
+  users_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  users <- dplyr::bind_rows(users_list) %>%
     dplyr::mutate(course_id = course_id)
 
   # Return the list of users

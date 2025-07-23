@@ -1,4 +1,3 @@
-
 #' Retrieves the media objects in a course.
 #'
 #' This function retrieves the media objects associated with a specific course in the Canvas LMS API.
@@ -17,15 +16,16 @@ get_course_media_objects <- function(canvas, course_id, per_page = 100) {
   # Make the API request
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
 
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve course media objects. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
 
-  # Parse the response as JSON
-  media_objects <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE) %>%
-    as.data.frame() %>%
+  # Parse and combine all results
+  media_objects_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  media_objects <- dplyr::bind_rows(media_objects_list) %>%
     dplyr::mutate(course_id = course_id)
 
   # Return the list of media objects

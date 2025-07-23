@@ -87,17 +87,19 @@ get_calendar_events <- function(canvas, type = "event", start_date = NULL, end_d
   }
 
   # Make the API request
-  response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)), query = params)
+  response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
 
-  # Check the response status code
-  if (httr::status_code(response) != 200) {
-    stop("Failed to retrieve calendar events. Please check your authentication and API endpoint.")
-  }
+  # Use pagination helper to get all pages
+  responses <- paginate(response, canvas$api_key)
 
-  # Parse the response as JSON
-  events <- httr::content(response, "text", encoding = "UTF-8") %>%
-    jsonlite::fromJSON(flatten = TRUE)
+  # Parse and combine all results
+  events_list <- lapply(responses, function(resp) {
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
+      as.data.frame()
+  })
+  events <- dplyr::bind_rows(events_list)
 
-  # Return the list of calendar events
+  # Return the data frame of events
   return(events)
 }
