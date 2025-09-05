@@ -93,7 +93,7 @@ containing your API key and base URL:</p>
 list of quizzes already available before uploading the new QTI file into
 the course:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">course_id</span> <span class="op">&lt;-</span> <span class="st">"12345"</span>  <span class="co"># Replace with your actual course ID</span></span>
+<code class="sourceCode R"><span><span class="va">course_id</span> <span class="op">&lt;-</span> <span class="st">"12345"</span> <span class="co"># Replace with your actual course ID</span></span>
 <span><span class="va">quizzes_before</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_course_quizzes.html">get_course_quizzes</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -117,7 +117,7 @@ not it asks the user if further waiting is required. Assuming the QTI
 file, stored in the working directory, is called “qti_file.zip”, the
 following code may be used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span>  <span class="co"># Replace with your actual file name</span></span>
+<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span> <span class="co"># Replace with your actual file name</span></span>
 <span><span class="va">quiz_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/upload_qti_file_with_migration.html">upload_qti_file_with_migration</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">qti_name</span>, wait <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Note that if this route is successful, one can directly <strong>go to
 step 6</strong>.</p>
@@ -125,7 +125,7 @@ step 6</strong>.</p>
 approach, it is advised to use the following code, which also requires
 steps 4 and 5:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span>  <span class="co"># Replace with your actual file name</span></span>
+<code class="sourceCode R"><span><span class="va">qti_name</span> <span class="op">&lt;-</span> <span class="st">"qti_file"</span> <span class="co"># Replace with your actual file name</span></span>
 <span><span class="fu"><a href="../reference/upload_qti_file_with_migration.html">upload_qti_file_with_migration</a></span><span class="op">(</span><span class="va">canvas</span>, <span class="va">course_id</span>, <span class="va">qti_name</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
