@@ -19,3 +19,10 @@ A data frame of course folders.
 \description{
 This function retrieves a list of folders for a specific course in the Canvas LMS API.
 }
+\details{
+Returns a list of all folders and sub folders for the given course.
+Note that for some reported sub folders its main folder may be outside of the course.
+}
+\seealso{
+\code{\link[=get_course_root_folder]{get_course_root_folder()}} and \code{\link[=get_user_folders]{get_user_folders()}}
+}

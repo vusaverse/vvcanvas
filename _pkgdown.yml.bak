@@ -325,15 +325,15 @@ reference:
 #   - remove_content_share
 #   - add_users_to_content_share
 #   - update_content_share
-- title: Conversations
-  desc: >
-    List, create, and manage conversations
-  contents:
+ - title: Conversations
+   desc: >
+     List, create, and manage conversations
+   contents:
 #   - list_conversations
-  - create_conversation
+    - create_conversation
 #   - get_running_batches
-  - get_conversations
-  - get_single_conversation
+    - get_conversations
+    - get_single_conversation
 #   - edit_conversation
 #   - mark_all_as_read
 #   - delete_conversation
@@ -1169,10 +1169,10 @@ reference:
 #   - delete_submission_comment
 #   - upload_file
 #
-- title: Submissions
-  desc: >
-    Manage student submissions.
-  contents:
+# title: Submissions
+# desc: >
+#   Manage student submissions.
+# contents:
 #   - list_assignments
 #   - get_single_assignment
 #   - get_single_submission
@@ -1352,4 +1352,3 @@ reference:
   - paginate
   - extract_next_url
   - append_access_token
-
