@@ -15,13 +15,12 @@
 #' @export
 #'
 create_module_item <- function(canvas, course_id, module_id, item_title, item_type = "Page",
-                               position = NULL, page_url = NULL, page_id = NULL){
-
+                               position = NULL, page_url = NULL, page_id = NULL) {
   # If the item is a page and its url is not given get the url of the page through its id
-  if(item_type == "Page" & is.null(page_url)){
-      url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/pages/", page_id)
-      page <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
-      page_url <- httr::content(page)$url
+  if (item_type == "Page" & is.null(page_url)) {
+    url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/pages/", page_id)
+    page <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
+    page_url <- httr::content(page)$url
   }
 
   # Construct the API endpoint URL
@@ -39,13 +38,14 @@ create_module_item <- function(canvas, course_id, module_id, item_title, item_ty
 
   # Make the API request
   response <- httr::POST(url,
-                         httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-                         body = payload,
-                         encode = "json")
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
+    body = payload,
+    encode = "json"
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {
-      stop("Failed to create module item. Please check your authentication and API endpoint.")
+    stop("Failed to create module item. Please check your authentication and API endpoint.")
   }
 
   # Return a confirmation message

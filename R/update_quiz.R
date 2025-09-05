@@ -43,9 +43,10 @@ update_quiz <- function(canvas, course_id, quiz_id, quiz_params) {
 
   # Make the PUT request to the Canvas API
   response <- httr::PUT(url,
-                  httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-                  body = list(quiz = quiz_params),
-                  encode = "json")
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
+    body = list(quiz = quiz_params),
+    encode = "json"
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {
@@ -56,5 +57,3 @@ update_quiz <- function(canvas, course_id, quiz_id, quiz_params) {
   updated_quiz <- httr::content(response, "parsed")
   return(updated_quiz)
 }
-
-

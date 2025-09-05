@@ -31,9 +31,10 @@ edit_section <- function(canvas, section_id, section_name = NULL, sis_section_id
 
   # Make the API request
   response <- httr::PUT(url,
-                        httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-                        body = payload,
-                        encode = "json")
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
+    body = payload,
+    encode = "json"
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {

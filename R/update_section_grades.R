@@ -25,7 +25,7 @@
 #'           points or percentage rather than the letter grade.}
 #'       \item{pass/complete/fail/incomplete}{A string value of "pass" or "complete"
 #'           will give a score of 100%. "fail" or "incomplete" will give a score of 0.}
-#'}
+#' }
 #'
 #' @param canvas An object containing the Canvas API key and base URL, obtained through the
 #' `canvas_authenticate` function.
@@ -37,19 +37,20 @@
 #' @return A confirmation message indicating that the grades have been updated.
 #' @seealso [update_course_grades()]
 #' @export
-update_section_grades <- function(canvas, section_id, assignment_id, student_ids, posted_grades)
-{
+update_section_grades <- function(canvas, section_id, assignment_id, student_ids, posted_grades) {
   if (length(student_ids) != length(posted_grades)) {
     stop("student_ids and posted_grades have unequal length. Please check your data.")
   }
   parameters <- paste0("grade_data[", student_ids, "][posted_grade]")
-  url <- paste0(canvas$base_url, "/api/v1/sections/", section_id,
-                "/assignments/", assignment_id, "/submissions/update_grades"
+  url <- paste0(
+    canvas$base_url, "/api/v1/sections/", section_id,
+    "/assignments/", assignment_id, "/submissions/update_grades"
   )
   payload <- as.list(posted_grades)
   names(payload) <- parameters
   response <- httr::POST(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-    body = payload, encode = "multipart")
+    body = payload, encode = "multipart"
+  )
   if (httr::status_code(response) != 200) {
     stop("Failed to update grades. Please check your authentication and API endpoint.")
   }

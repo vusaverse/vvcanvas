@@ -22,9 +22,10 @@ create_folder <- function(canvas, course_id, folder_name, parent_folder_id = NUL
 
   # Make the API request
   response <- httr::POST(url,
-                         httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-                         body = payload,
-                         encode = "json")
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
+    body = payload,
+    encode = "json"
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {

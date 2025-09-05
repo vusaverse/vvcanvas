@@ -16,15 +16,18 @@
 #' @return A confirmation message that the page has been updated.
 #' @export
 #'
-update_page <- function (canvas, course_id, page_id, page_params)
-{
-    url <- paste0(canvas$base_url, "/api/v1/courses/", course_id,
-        "/pages/", page_id)
-    response <- httr::PUT(url, httr::add_headers(Authorization = paste("Bearer",
-        canvas$api_key)), body = list(wiki_page = page_params), encode = "json")
-    if (httr::status_code(response) != 200) {
-        stop("Failed to update page. Please check your authentication, course ID, page ID, and parameters.")
-    }
-    updated_page <- httr::content(response, "parsed")
-    return(updated_page)
+update_page <- function(canvas, course_id, page_id, page_params) {
+  url <- paste0(
+    canvas$base_url, "/api/v1/courses/", course_id,
+    "/pages/", page_id
+  )
+  response <- httr::PUT(url, httr::add_headers(Authorization = paste(
+    "Bearer",
+    canvas$api_key
+  )), body = list(wiki_page = page_params), encode = "json")
+  if (httr::status_code(response) != 200) {
+    stop("Failed to update page. Please check your authentication, course ID, page ID, and parameters.")
+  }
+  updated_page <- httr::content(response, "parsed")
+  return(updated_page)
 }

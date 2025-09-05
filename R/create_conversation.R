@@ -26,7 +26,7 @@
 #' @param mode Determines whether the messages will be created/sent synchronously or
 #' asynchronously. Defaults to `sync`.
 #' @param scope Used when generating 'visible' in the API response, values allowed are `unread`,
-#' `starred`, `archived`. 	
+#' `starred`, `archived`.
 #' @param filter Used when generating 'visible' in the API response.
 #' @param filter_mode Used when generating 'visible' in the API response, values allowed are `and`, `or`
 #'  (default).
@@ -35,27 +35,31 @@
 #' @return A confirmation message indicating that the message has been successfully send.
 #' @seealso [get_single_conversation()] and [get_conversations()].
 #' @export
-create_conversation <- function (canvas, recipients = NULL, subject = " ", body = " ",
-                                 force_new = TRUE, group_conversation = FALSE, attachments = NULL,
-                                 attachment_ids = NULL, media_comment_id = NULL,
-                                 media_comment_type = NULL, mode = "sync", scope = NULL,
-                                 filter = NULL, filter_mode = NULL, context_code = NULL)
-{
-  if (!is.null(attachments)){
+create_conversation <- function(canvas, recipients = NULL, subject = " ", body = " ",
+                                force_new = TRUE, group_conversation = FALSE, attachments = NULL,
+                                attachment_ids = NULL, media_comment_id = NULL,
+                                media_comment_type = NULL, mode = "sync", scope = NULL,
+                                filter = NULL, filter_mode = NULL, context_code = NULL) {
+  if (!is.null(attachments)) {
     folders <- get_user_folders(canvas)
     folder_id <- folders[folders$name == "conversation attachments", "id"]
-    for(i in 1 : length(attachments)){
+    for (i in 1:length(attachments)) {
       response <- upload_folder_file(canvas, folder_id, attachments[i],
-      generate_message = FALSE)
+        generate_message = FALSE
+      )
       attachment_ids <- c(attachment_ids, response$id)
     }
   }
   url <- paste0(canvas$base_url, "/api/v1/conversations")
-  payload <- list(recipients, subject, body, force_new, group_conversation, attachment_ids,
-    media_comment_id, media_comment_type, mode, scope, filter, filter_mode, context_code)
-  names(payload) <- c("recipients[]", "subject", "body", "force_new", "group_conversation",
+  payload <- list(
+    recipients, subject, body, force_new, group_conversation, attachment_ids,
+    media_comment_id, media_comment_type, mode, scope, filter, filter_mode, context_code
+  )
+  names(payload) <- c(
+    "recipients[]", "subject", "body", "force_new", "group_conversation",
     "attachment_ids[]", "media_comment_id", "media_comment_type", "mode", "scope", "filter[]",
-    "filter_mode", "context_code")
+    "filter_mode", "context_code"
+  )
   response <- httr::POST(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)), body = payload, encode = "multipart")
   if (httr::status_code(response) != 201) {
     stop("Failed to create conversation. Please check your authentication and API endpoint.")

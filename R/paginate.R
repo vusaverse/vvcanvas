@@ -38,8 +38,10 @@ paginate <- function(initial_response, access_token, showProgress = TRUE) {
 #' @export
 extract_next_url <- function(link_header) {
   matches <- regmatches(link_header, gregexpr('<[^>]+>; rel="next"', link_header))[[1]]
-  if (length(matches) == 0) return(NULL)
-  url <- sub('^<([^>]+)>; rel="next"$', '\\1', matches[1])
+  if (length(matches) == 0) {
+    return(NULL)
+  }
+  url <- sub('^<([^>]+)>; rel="next"$', "\\1", matches[1])
   return(url)
 }
 
@@ -51,7 +53,9 @@ extract_next_url <- function(link_header) {
 #' @return The URL with the access_token appended if it was not already present.
 #' @export
 append_access_token <- function(url, access_token) {
-  if (grepl('access_token=', url)) return(url)
-  sep <- ifelse(grepl('\\?', url), '&', '?')
-  paste0(url, sep, 'access_token=', access_token)
+  if (grepl("access_token=", url)) {
+    return(url)
+  }
+  sep <- ifelse(grepl("\\?", url), "&", "?")
+  paste0(url, sep, "access_token=", access_token)
 }

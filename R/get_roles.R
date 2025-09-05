@@ -23,4 +23,3 @@ get_roles <- function(canvas, account_id, per_page = 100) {
 
   return(roles)
 }
-

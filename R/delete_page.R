@@ -9,13 +9,14 @@
 #' @return A confirmation message that the page has been deleted.
 #' @export
 #'
-delete_page <- function (canvas, course_id, page_id)
-{
-    url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/pages/", page_id)
-    response <- httr::DELETE(url, httr::add_headers(Authorization = paste("Bearer",
-        canvas$api_key)))
-    if (httr::status_code(response) != 200) {
-        stop("Failed to delete page. Please check your authentication and API endpoint.")
-    }
-    return("The page has been deleted.")
+delete_page <- function(canvas, course_id, page_id) {
+  url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/pages/", page_id)
+  response <- httr::DELETE(url, httr::add_headers(Authorization = paste(
+    "Bearer",
+    canvas$api_key
+  )))
+  if (httr::status_code(response) != 200) {
+    stop("Failed to delete page. Please check your authentication and API endpoint.")
+  }
+  return("The page has been deleted.")
 }

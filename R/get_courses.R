@@ -27,5 +27,3 @@ get_courses <- function(canvas, per_page = 100) {
   # Return the list of courses
   return(courses)
 }
-
-

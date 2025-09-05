@@ -17,8 +17,7 @@
 #' `canvas_user_id`) and assignments in columns (identifiable through assigment names).
 #' @seealso [get_assignments()], and [get_assignment_submissions()].
 #' @export
-get_course_gradebook <- function(canvas, course_id)
-{
+get_course_gradebook <- function(canvas, course_id) {
   # Obtain enrolled students
   students <- get_course_students(canvas, course_id)
   if (!any(grepl("sis_user_id", names(students)))) {
@@ -30,14 +29,15 @@ get_course_gradebook <- function(canvas, course_id)
   assignments <- assignments[assignments$visible_to_everyone, ]
 
   # Evaluate availability of assignments
-  if (length(assignments) == 0 || nrow(assignments) == 0){
+  if (length(assignments) == 0 || nrow(assignments) == 0) {
     stop("This course has no assignments.")
   }
 
   # Loop through assignment submissions
   assignment_list <- apply(assignments, 1, function(x) {
     grades <- get_assignment_submissions(canvas, course_id, x$id) %>%
-      as.data.frame() %>% dplyr::select(c("user_id", "score")) %>%
+      as.data.frame() %>%
+      dplyr::select(c("user_id", "score")) %>%
       `colnames<-`(c("canvas_user_id", x$name))
   })
 

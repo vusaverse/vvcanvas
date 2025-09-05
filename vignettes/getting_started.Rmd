@@ -51,7 +51,6 @@ Sys.setenv(CANVAS_BASE_URL = "https://your_canvas_domain.com/")
 
 # Authenticate with the Canvas LMS API
 canvas <- canvas_authenticate()
-
 ```
 
 
@@ -64,7 +63,6 @@ Once authenticated, you can retrieve course information using the get_courses fu
 courses <- get_courses(canvas)
 
 head(courses)
-
 ```
 
 # Fetching Specific Details
@@ -79,6 +77,5 @@ course_id <- 12345
 # Fetch the assignments for the course
 assignments <- get_assignments(canvas, course_id)
 head(assignments)
-
 ```
 

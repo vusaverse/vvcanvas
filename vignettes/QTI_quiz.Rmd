@@ -39,7 +39,7 @@ Set the course in which the upload must take place and retrieve the list of quiz
 
 
 ```{r}
-course_id <- "12345"  # Replace with your actual course ID
+course_id <- "12345" # Replace with your actual course ID
 quizzes_before <- get_course_quizzes(canvas, course_id)
 ```
 
@@ -51,7 +51,7 @@ The time that Canvas requires to process the uploaded QTI file is hard to predic
 If processing takes little time (e.g., 5 to 10 seconds), one can obtain the ID of the quiz directly using the `upload_qti_file_with_migration` function setting `wait = TRUE`, by which the function waits 30 seconds after uploading the QTI file to check if it has been converted into a new quiz. If a new quiz has been created it returns the ID of the quiz; if not it asks the user if further waiting is required. Assuming the QTI file, stored in the working directory, is called "qti_file.zip", the following code may be used:
 
 ```{r}
-qti_name <- "qti_file"  # Replace with your actual file name
+qti_name <- "qti_file" # Replace with your actual file name
 quiz_id <- upload_qti_file_with_migration(canvas, course_id, qti_name, wait = TRUE)
 ```
 
@@ -60,7 +60,7 @@ Note that if this route is successful, one can directly **go to step 6**.
 By contrast, if one prefers or is forced to use the extensive approach, it is advised to use the following code, which also requires steps 4 and 5:
 
 ```{r}
-qti_name <- "qti_file"  # Replace with your actual file name
+qti_name <- "qti_file" # Replace with your actual file name
 upload_qti_file_with_migration(canvas, course_id, qti_name)
 ```
 
@@ -98,7 +98,6 @@ quiz_params <- list(
 
 updated_quiz <- update_quiz(canvas, course_id, quiz_id, quiz_params)
 print(updated_quiz)
-
 ```
 
 ## Conclusion

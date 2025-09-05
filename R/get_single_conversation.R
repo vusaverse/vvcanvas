@@ -11,8 +11,7 @@
 #' participant information.
 #' @seealso [get_conversations()] and [create_conversation()].
 #' @export
-get_single_conversation <- function (canvas, conversation_id)
-{
+get_single_conversation <- function(canvas, conversation_id) {
   url <- paste0(canvas$base_url, "/api/v1/conversations/", conversation_id)
   response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
   if (httr::status_code(response) != 200) {

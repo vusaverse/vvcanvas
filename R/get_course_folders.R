@@ -1,7 +1,7 @@
 #' Retrieves course folders.
 #'
 #' This function retrieves a list of folders for a specific course in the Canvas LMS API.
-#' 
+#'
 #' Returns a list of all folders and sub folders for the given course.
 #' Note that for some reported sub folders its main folder may be outside of the course.
 #'

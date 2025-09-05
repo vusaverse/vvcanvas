@@ -13,11 +13,12 @@
 #' accessing the API.
 #' @seealso [get_course_root_folder()] and [get_course_folders()]
 #' @export
-get_user_folders <- function (canvas)
-{
+get_user_folders <- function(canvas) {
   url <- paste0(canvas$base_url, "/api/v1/users/self/folders")
-  response <- httr::GET(url, httr::add_headers(Authorization = paste("Bearer",
-    canvas$api_key)))
+  response <- httr::GET(url, httr::add_headers(Authorization = paste(
+    "Bearer",
+    canvas$api_key
+  )))
   if (httr::status_code(response) != 200) {
     stop("Failed to retrieve your folders. Please check your authentication and API endpoint.")
   }
@@ -25,12 +26,12 @@ get_user_folders <- function (canvas)
   responses <- paginate(response, canvas$api_key)
 
   folders_list <- lapply(responses, function(resp) {
-    httr::content(resp, "text", encoding = "UTF-8") %>% jsonlite::fromJSON(flatten = TRUE) %>%
+    httr::content(resp, "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON(flatten = TRUE) %>%
       as.data.frame()
   })
 
   folders <- dplyr::bind_rows(folders_list) %>% dplyr::arrange(.data$full_name)
 
   return(folders)
-
 }
