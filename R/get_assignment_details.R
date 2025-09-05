@@ -27,9 +27,3 @@ get_assignment_details <- function(canvas, course_id, assignment_id) {
   # Return the assignment details as a list
   return(assignment_details)
 }
-
-
-
-
-
-

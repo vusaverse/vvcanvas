@@ -13,8 +13,10 @@ delete_course_section <- function(canvas, section_id) {
   url <- paste0(canvas$base_url, "/api/v1/sections/", section_id)
 
   # Make the API request
-  response <- httr::DELETE(url,
-                           httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
+  response <- httr::DELETE(
+    url,
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key))
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {

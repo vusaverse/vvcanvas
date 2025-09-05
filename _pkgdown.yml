@@ -325,14 +325,15 @@ reference:
 #   - remove_content_share
 #   - add_users_to_content_share
 #   - update_content_share
-# - title: Conversations
-#   desc: >
-#     List, create, and manage conversations
-#   contents:
+- title: Conversations
+  desc: >
+    List, create, and manage conversations
+  contents:
 #   - list_conversations
-#   - create_conversation
+  - create_conversation
 #   - get_running_batches
-#   - get_single_conversation
+  - get_conversations
+  - get_single_conversation
 #   - edit_conversation
 #   - mark_all_as_read
 #   - delete_conversation
@@ -410,6 +411,12 @@ reference:
 #   - list_entries_for_a_column
 #   - update_column_data
 #   - bulk_update_column_data
+#
+- title: Gradebook data
+  desc: >
+    Retrieve gradebook data
+  contents:
+  - get_course_gradebook
 #
 - title: Discussion Topics
   desc: >
@@ -525,6 +532,7 @@ reference:
 #   - translate_file
 #   - update_file
   - upload_file
+  - upload_folder_file
 #   - delete_file
 #   - get_icon_metadata
 #   - reset_link_verifier
@@ -534,6 +542,9 @@ reference:
   contents:
   # - list_all_folders
   - get_course_folders
+  - get_user_folders  
+  - get_course_root_folder
+  - get_folder_files
   # - resolve_path
   # - get_folder
   # - update_folder
@@ -933,11 +944,11 @@ reference:
 # contents:
 #   - create_update_proficiency_ratings
 #   - get_proficiency_ratings
-# title: Progress
-# desc: >
-#   Retrieve user progress.
-# contents:
-#   - query_progress
+- title: Progress
+  desc: >
+    Retrieve user progress.
+  contents:
+    - query_progress
 #
 # title: Public JWK
 # desc: >
@@ -1027,11 +1038,12 @@ reference:
 #   - send_message_to_unsubmitted_users
 #   - send_message_to_submitted_users
 #
-# title: Quiz Submissions
-# desc: >
-#   Manage quiz submissions.
-# contents:
+- title: Quiz Submissions
+  desc: >
+    Manage quiz submissions.
+  contents:
 #   - list_quiz_submissions
+  - get_quiz_submissions
 #   - get_quiz_submission
 #   - get_single_quiz_submission
 #   - create_quiz_submission
@@ -1157,10 +1169,10 @@ reference:
 #   - delete_submission_comment
 #   - upload_file
 #
-# title: Submissions
-# desc: >
-#   Manage student submissions.
-# contents:
+- title: Submissions
+  desc: >
+    Manage student submissions.
+  contents:
 #   - list_assignments
 #   - get_single_assignment
 #   - get_single_submission
@@ -1178,6 +1190,8 @@ reference:
 #   - mark_rubric_assessments_as_read
 #   - get_document_annotations_read_state
 #   - mark_document_annotations_as_read
+  - update_course_grades
+  - update_section_grades
 #
 # title: Services
 # desc: >
@@ -1338,3 +1352,4 @@ reference:
   - paginate
   - extract_next_url
   - append_access_token
+

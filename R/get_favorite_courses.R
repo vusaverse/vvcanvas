@@ -18,8 +18,10 @@ get_favorite_courses <- function(canvas, exclude_blueprint_courses = NULL) {
   }
 
   # Make the API request
-  response <- httr::GET(url,
-                        httr::add_headers(Authorization = paste("Bearer", canvas$api_key)))
+  response <- httr::GET(
+    url,
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key))
+  )
 
   # Check the response status code
   if (httr::status_code(response) != 200) {

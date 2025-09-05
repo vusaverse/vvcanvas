@@ -10,7 +10,7 @@
 #' @return A confirmation message that the module has been created.
 #' @export
 #'
-create_module <- function(canvas, course_id, module_name, position = NULL){
+create_module <- function(canvas, course_id, module_name, position = NULL) {
   # Construct the API endpoint URL
   url <- paste0(canvas$base_url, "/api/v1/courses/", course_id, "/modules")
 
@@ -19,18 +19,19 @@ create_module <- function(canvas, course_id, module_name, position = NULL){
     "module" = list(
       "name" = module_name,
       "position" = position
-      )
+    )
   )
 
   # Make the API request
   response <- httr::POST(url,
-                         httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
-                         body = payload,
-                         encode = "json")
+    httr::add_headers(Authorization = paste("Bearer", canvas$api_key)),
+    body = payload,
+    encode = "json"
+  )
 
   if (httr::status_code(response) != 200) {
-        stop("Failed to create module. Please check your authentication and API endpoint.")
-    }
+    stop("Failed to create module. Please check your authentication and API endpoint.")
+  }
 
   # Return a confirmation message
   return("The module has been created.")
