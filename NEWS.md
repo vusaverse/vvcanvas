@@ -1,3 +1,8 @@
+# vvcanvas 0.0.6
+
+* Improved pagination.
+* Added deletion and update methods.
+
 # vvcanvas 0.0.5
 * Added numerous page functions.
 

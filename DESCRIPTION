@@ -1,6 +1,6 @@
 Package: vvcanvas
 Title: 'Canvas' LMS API Integration
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: 
   c(person(given = "Tomer", 
            family = "Iwan", 
