@@ -68,12 +68,3 @@ In order to retrieve a dataframe with all courses you can use the following func
 courses <- get_courses(canvas)
 
 ```
-
-# Canvas Analytics Project
-The [canvas-analytics](https://github.com/vusaverse/canvas-analytics) project provides a data pipeline for extracting, aggregating, and analyzing data from the Canvas Learning Management System (LMS) using the `vvcanvas` package. It aims to facilitate data retrieval and analysis at student, course, and program levels, enabling data-driven insights and decision-making in education and learning analytics. Key features include:
-
-- Data extraction from Canvas LMS API
-- Data aggregation at different levels (student, course, program)
-- Data visualization and reporting
-- Reproducible and extensible analysis workflow
-
