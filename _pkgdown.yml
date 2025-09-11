@@ -90,6 +90,7 @@ reference:
   # - get_course_level_assignment_data
   # - get_course_level_student_summary_data
   - get_student_summaries
+  - get_course_analytics_student_summaries
   - get_user_course_participation_data
   - get_user_course_assignment_data
   - get_user_course_messaging_data
