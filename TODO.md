@@ -2632,10 +2632,10 @@
 - [ ]           List users in account              UsersController#api_index       ; 
     GET /api/v1/accounts/:account_id/users
   
-- [ ]           List the activity stream              UsersController#activity_stream       ; 
+- [x]           List the activity stream              UsersController#activity_stream       ; 
     GET /api/v1/users/self/activity_stream
   
-- [ ]           List the activity stream              UsersController#activity_stream       ; 
+- [x]           List the activity stream              UsersController#activity_stream       ; 
     GET /api/v1/users/activity_stream
   
 - [ ]           Activity stream summary              UsersController#activity_stream_summary       ; 

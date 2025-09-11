@@ -1318,6 +1318,11 @@ reference:
 #   - get_document_annotations_read_state
 #   - mark_document_annotations_as_read
 #   - submission_summary
+- title: Users
+  desc: >
+    Manage users and user activities.
+  contents:
+  - list_user_activity_stream
 # title: Custom Data
 # desc: >
 #   Manage custom data.
