@@ -1079,16 +1079,16 @@ reference:
   # - deactivate_role
   # - activate_role
   # - update_role
-# title: Rubrics
-# desc: >
-#   Manage rubrics.
-# contents:
+- title: Rubrics
+  desc: >
+    Manage rubrics.
+  contents:
+  - list_course_rubrics
 #   - create_rubric
 #   - update_rubric
 #   - delete_rubric
 #   - list_rubrics
 #   - get_single_rubric
-#
 # title: RubricAssessments
 # desc: >
 #   Manage rubric assessments.
