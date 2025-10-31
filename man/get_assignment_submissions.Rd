@@ -2,27 +2,23 @@
 % Please edit documentation in R/get_assignment_submissions.R
 \name{get_assignment_submissions}
 \alias{get_assignment_submissions}
-\title{Lists assignment submissions for a course.}
+\title{Retrieves assignment submissions.}
 \usage{
-get_assignment_submissions(
-  canvas,
-  course_id,
-  assignment_id = NULL,
-  per_page = 100
-)
+get_assignment_submissions(canvas, course_id, assignment_id, per_page = 100)
 }
 \arguments{
 \item{canvas}{An object containing the Canvas API key and base URL, obtained through the \code{canvas_authenticate} function.}
 
-\item{course_id}{The ID of the course for which to list assignment submissions.}
+\item{course_id}{The ID of the course for which to fetch submissions.}
 
-\item{assignment_id}{(Optional) The ID of a specific assignment for which to list submissions.}
+\item{assignment_id}{The ID of the assignment for which to fetch the submissions.}
 
 \item{per_page}{(Optional) The number of submissions to retrieve per page of results (default is 100).}
 }
 \value{
-A data frame of assignment submissions for the specified course and assignment.
+A data frame containing the submission data.
 }
 \description{
-This function retrieves a list of assignment submissions for a specific course in the Canvas LMS API.
+This function retrieves the submissions to a specific assignment in a specific course in the
+Canvas LMS API.
 }
