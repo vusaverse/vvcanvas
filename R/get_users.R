@@ -45,7 +45,7 @@ get_users <- function(canvas,
 
   # Add search_term parameter if provided
   if (!is.null(search_term)) {
-    url <- paste0(url, "&search_term=", URLencode(search_term, reserved = TRUE))
+    url <- paste0(url, "&search_term=", utils::URLencode(search_term, reserved = TRUE))
   }
 
   # Add enrollment_type parameter if provided
@@ -92,7 +92,7 @@ get_users <- function(canvas,
       stop("uuids must be a vector")
     }
     # Only use first 100 UUIDs as per API documentation
-    uuids_limited <- head(uuids, 100)
+    uuids_limited <- utils::head(uuids, 100)
     url <- paste0(url, "&uuids[]=", paste(uuids_limited, collapse = "&uuids[]="))
   }
 

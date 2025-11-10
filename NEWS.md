@@ -1,3 +1,9 @@
+# vvcanvas 0.0.8 - 2025-11-10 (pre-release)
+
+### Added
+* New function `get_users()` to retrieve all users from a specified account in Canvas LMS, supporting advanced filtering, sorting, pagination, and expanded user details inclusion.
+* Supports optional parameters for search terms, enrollment types, custom sorting and ordering, inclusion of deleted users, UUID filtering, and additional user-related info such as email, enrollments, avatar, bio, locale, last login, timezone, and pronouns.
+
 # vvcanvas 0.0.7
 
 * Enhanced get_assignment_submissions() function for more accurate and efficient retrieval of assignment submission data from Canvas LMS, improving performance and reliability in handling submissions (#37).
