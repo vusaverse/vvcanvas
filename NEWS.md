@@ -1,7 +1,16 @@
+# vvcanvas 0.0.7
+
+* Enhanced get_assignment_submissions() function for more accurate and efficient retrieval of assignment submission data from Canvas LMS, improving performance and reliability in handling submissions (#37).
+
+* Miscellaneous stability and reliability improvements preparing for broader usage and smoother user experience.
+
 # vvcanvas 0.0.6
 
-* Improved pagination.
-* Added deletion and update methods.
+* Improved pagination handling for Canvas API get functions to support larger result sets and improve reliability (#16).
+
+* Added 12 new utility and API functions to extend feature coverage (#34).
+
+* Added new methods supporting deletion and update operations,
 
 # vvcanvas 0.0.5
 * Added numerous page functions.
