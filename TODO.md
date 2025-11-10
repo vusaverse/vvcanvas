@@ -2629,7 +2629,7 @@
 - [ ]           Create observer pairing code              ObserverPairingCodesApiController#create       ; 
     POST /api/v1/users/:user_id/observer_pairing_codes
   
-- [ ]           List users in account              UsersController#api_index       ; 
+- [x]           List users in account              UsersController#api_index       ; 
     GET /api/v1/accounts/:account_id/users
   
 - [ ]           List the activity stream              UsersController#activity_stream       ; 

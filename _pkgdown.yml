@@ -57,6 +57,7 @@ reference:
     Methods for accounts.
   contents:
   - get_accounts
+  - get_users
   - list_all_enrollment_terms
 #   - get_accounts_admins_can_manage
 #   - get_accounts_users_can_create_courses_in
