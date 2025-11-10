@@ -1,17 +1,12 @@
-# Lists assignment submissions for a course.
+# Retrieves assignment submissions.
 
-This function retrieves a list of assignment submissions for a specific
-course in the Canvas LMS API.
+This function retrieves the submissions to a specific assignment in a
+specific course in the Canvas LMS API.
 
 ## Usage
 
 ``` r
-get_assignment_submissions(
-  canvas,
-  course_id,
-  assignment_id = NULL,
-  per_page = 100
-)
+get_assignment_submissions(canvas, course_id, assignment_id, per_page = 100)
 ```
 
 ## Arguments
@@ -23,12 +18,11 @@ get_assignment_submissions(
 
 - course_id:
 
-  The ID of the course for which to list assignment submissions.
+  The ID of the course for which to fetch submissions.
 
 - assignment_id:
 
-  (Optional) The ID of a specific assignment for which to list
-  submissions.
+  The ID of the assignment for which to fetch the submissions.
 
 - per_page:
 
@@ -37,5 +31,4 @@ get_assignment_submissions(
 
 ## Value
 
-A data frame of assignment submissions for the specified course and
-assignment.
+A data frame containing the submission data.

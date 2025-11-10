@@ -27,3 +27,15 @@ get_course_folders(canvas, course_id, per_page = 100)
 ## Value
 
 A data frame of course folders.
+
+## Details
+
+Returns a list of all folders and sub folders for the given course. Note
+that for some reported sub folders its main folder may be outside of the
+course.
+
+## See also
+
+[`get_course_root_folder()`](https://vusaverse.github.io/vvcanvas/reference/get_course_root_folder.md)
+and
+[`get_user_folders()`](https://vusaverse.github.io/vvcanvas/reference/get_user_folders.md)

@@ -6,7 +6,7 @@ course in the Canvas LMS API.
 ## Usage
 
 ``` r
-get_page_content(canvas, course_id, page_id)
+get_page_content(canvas, course_id, page_id, return_as_plain_text = TRUE)
 ```
 
 ## Arguments
@@ -24,6 +24,12 @@ get_page_content(canvas, course_id, page_id)
 
   The ID of the page for which to fetch the content body.
 
+- return_as_plain_text:
+
+  A logical value indicating whether to return the content as plain text
+  (default is TRUE).
+
 ## Value
 
-The content body of the specified page.
+The content body of the specified page, either as plain text or raw
+HTML.

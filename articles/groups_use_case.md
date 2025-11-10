@@ -37,21 +37,22 @@ group_ids <- groups$id
 ## Step 3: Retrieve group memberships
 
 ``` r
-
 # Retrieve group memberships using purrr
-memberships <- purrr::map_df(group_ids, ~{
+memberships <- purrr::map_df(group_ids, ~ {
   group_id <- .x
-  
+
   # Retrieve the group's memberships
   group_memberships <- get_group_users(canvas, group_id)
-  
+
   # Extract user names from memberships
   user_names <- group_memberships$name
-  
+
   # Create a data frame with group memberships
-  group_df <- data.frame(group_id = rep(group_id, length(user_names)),
-                         user_name = user_names,
-                         stringsAsFactors = FALSE)
+  group_df <- data.frame(
+    group_id = rep(group_id, length(user_names)),
+    user_name = user_names,
+    stringsAsFactors = FALSE
+  )
 
   return(group_df)
 })
