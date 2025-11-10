@@ -1,0 +1,114 @@
+# Uploading QTI Files and Updating Quiz Parameters in Canvas LMS
+
+``` r
+library(vvcanvas)
+```
+
+## Introduction
+
+This vignette demonstrates how to upload a QTI file to Canvas LMS,
+retrieve the ID of the newly created quiz, and update quiz parameters
+using R. The process involves using the
+`upload_qti_file_with_migration`, `get_course_quizzes` and `update_quiz`
+functions.
+
+## Step 1: Authenticate with Canvas
+
+First, authenticate with Canvas by creating a canvas object containing
+your API key and base URL:
+
+``` r
+canvas <- vvcanvas::canvas_authenticate()
+```
+
+## Step 2: Retrieve the List of Quizzes
+
+Set the course in which the upload must take place and retrieve the list
+of quizzes already available before uploading the new QTI file into the
+course:
+
+``` r
+course_id <- "12345" # Replace with your actual course ID
+quizzes_before <- get_course_quizzes(canvas, course_id)
+```
+
+## Step 3: Upload the QTI File
+
+The time that Canvas requires to process the uploaded QTI file is hard
+to predict. It depends on the traffic on the Canvas server, and possibly
+the number of migrations the user has recently performed. Therefore, in
+circumstances with much waiting time a different approach is advised
+than when waiting time is short. In the latter case the ID of the quiz
+is easily obtained, and in the former case the ID needs to be determined
+using a more extensive approach requiring two additional steps.
+
+If processing takes little time (e.g., 5 to 10 seconds), one can obtain
+the ID of the quiz directly using the `upload_qti_file_with_migration`
+function setting `wait = TRUE`, by which the function waits 30 seconds
+after uploading the QTI file to check if it has been converted into a
+new quiz. If a new quiz has been created it returns the ID of the quiz;
+if not it asks the user if further waiting is required. Assuming the QTI
+file, stored in the working directory, is called “qti_file.zip”, the
+following code may be used:
+
+``` r
+qti_name <- "qti_file" # Replace with your actual file name
+quiz_id <- upload_qti_file_with_migration(canvas, course_id, qti_name, wait = TRUE)
+```
+
+Note that if this route is successful, one can directly **go to step
+6**.
+
+By contrast, if one prefers or is forced to use the extensive approach,
+it is advised to use the following code, which also requires steps 4 and
+5:
+
+``` r
+qti_name <- "qti_file" # Replace with your actual file name
+upload_qti_file_with_migration(canvas, course_id, qti_name)
+```
+
+## Step 4: Retrieve Quizzes After Upload (extensive approach)
+
+For the extensive approach it is advised to wait sufficient time to make
+sure the QTI is converted into a quiz (sometimes it takes one or two
+hours). Next, retrieve the list of quizzes again after the QTI file
+upload using:
+
+``` r
+quizzes_after <- get_course_quizzes(canvas, course_id)
+print(quizzes_after)
+```
+
+## Step 5: Identify the New Quiz (extensive approach)
+
+Compare the lists of quizzes before and after the upload to identify the
+ID of the newly created quiz:
+
+``` r
+quiz_id <- setdiff(quizzes_after, quizzes_before)
+print(new_quiz)
+```
+
+## Step 6: Update Quiz Parameters
+
+Use the update_quiz function to modify the parameters of the newly
+created quiz:
+
+``` r
+quiz_params <- list(
+  title = "Updated Quiz Title",
+  description = "Updated description of the quiz.",
+  due_at = "2013-01-23T23:59:00-07:00",
+  published = TRUE
+)
+
+updated_quiz <- update_quiz(canvas, course_id, quiz_id, quiz_params)
+print(updated_quiz)
+```
+
+## Conclusion
+
+This vignette demonstrated how to upload a QTI file to Canvas LMS,
+identify the newly created quiz, and update its parameters. You can
+extend this process to modify other quiz attributes as needed.

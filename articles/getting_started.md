@@ -1,0 +1,69 @@
+# Getting Started
+
+## Introduction
+
+The `vvcanvas` package is designed to interact with the Canvas Learning
+Management System (LMS) API. This vignette provides a basic guide on how
+to authenticate, retrieve course information, and fetch specific details
+using the package.
+
+## Installation
+
+To install the `vvcanvas` package, you can use the following command:
+
+``` r
+install_github("vusaverse/vvcanvas")
+library(vvcanvas)
+```
+
+## Authentication
+
+To start using the package, you need to authenticate with the Canvas LMS
+API using your API key and base URL. Here’s an example of how to
+authenticate:
+
+``` r
+# Replace the placeholders with your API key and base URL
+api_key <- "YOUR_API_KEY"
+base_url <- "https://your_canvas_domain.com/"
+
+# Authenticate with the Canvas LMS API
+canvas <- canvas_authenticate(api_key, base_url)
+
+
+## Alternatively, you can set system variables
+
+# Set the API key and base URL as environment variables
+Sys.setenv(CANVAS_API_KEY = "YOUR_API_KEY")
+Sys.setenv(CANVAS_BASE_URL = "https://your_canvas_domain.com/")
+
+# Authenticate with the Canvas LMS API
+canvas <- canvas_authenticate()
+```
+
+## Retrieving Course Information
+
+Once authenticated, you can retrieve course information using the
+get_courses function. Here’s an example:
+
+``` r
+# Fetch the dataframe of courses
+courses <- get_courses(canvas)
+
+head(courses)
+```
+
+## Fetching Specific Details
+
+The `vvcanvas` package provides various functions to fetch specific
+details. For example, to retrieve the assignments within a course, you
+can use the get_assignments function:
+
+``` r
+# Replace the placeholder with the desired course ID
+course_id <- 12345
+
+# Fetch the assignments for the course
+assignments <- get_assignments(canvas, course_id)
+head(assignments)
+```
