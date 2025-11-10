@@ -4,8 +4,7 @@ pkgdown_sha: ~
 articles:
   getting_started: getting_started.html
   groups_use_case: groups_use_case.html
-  QTI_quiz: QTI_quiz.html
-last_built: 2025-11-10T13:18Z
+last_built: 2025-11-10T13:27Z
 urls:
   reference: https://vusaverse.github.io/vvcanvas/reference
   article: https://vusaverse.github.io/vvcanvas/articles

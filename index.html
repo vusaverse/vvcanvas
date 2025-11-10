@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">vvcanvas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,6 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/getting_started.html">Getting Started</a></li>
     <li><a class="dropdown-item" href="articles/groups_use_case.html">Working with groups</a></li>
-    <li><a class="dropdown-item" href="articles/QTI_quiz.html">Uploading QTI Files and Updating Quiz Parameters in Canvas LMS</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -62,7 +61,7 @@
 </h1>
 </div>
 <p><a href="https://www.codefactor.io/repository/github/vusaverse/vvcanvas" class="external-link"><img src="https://www.codefactor.io/repository/github/vusaverse/vvcanvas/badge" alt="CodeFactor"></a> <a href="https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/vusaverse/vvcanvas/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://CRAN.R-project.org/package=vvcanvas/" class="external-link"><img src="https://www.r-pkg.org/badges/version/vvcanvas" alt="CRAN status"></a> <a href="https://diffify.com/R/vvcanvas" target="_blank" class="external-link"><img src="https://diffify.com/diffify-badge.svg" alt="The diffify page for the R package vvcanvas" style="width: 100px; max-width: 100%;"></a> <a href="https://cran.r-project.org/package=vvcanvas/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-month/vvcanvas?color=green/" alt="CRAN last month downloads"></a> <a href="https://cran.r-project.org/package=vvcanvas/" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/vvcanvas?color=green/" alt="CRAN last month downloads"></a></p>
-<p>The open source R package vvcanvas provides a convenient interface to interact with the Canvas Learning Management System (LMS) API. It allows users to authenticate, retrieve course information, fetch specific details, and perform various operations within the Canvas LMS.</p>
+<p>The <code>vvcanvas</code> package is an R library that provides a convenient interface to interact with the Canvas Learning Management System (LMS) API. It allows users to authenticate, retrieve course information, fetch specific details, and perform various operations within the Canvas LMS.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -70,12 +69,6 @@
 <pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"vusaverse/vvcanvas"</span><span class="op">)</span></span></code></pre>
 <p>It is also possible to install from CRAN:</p>
 <pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"vvcanvas"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
-</h2>
-<p>To see which functions are available in which section based on the CANVAS LMS API structure, please refer to the reference page of the <code>vvcanvas</code> package. The <a href="https://vusaverse.github.io/vvcanvas/reference/index.html">reference</a> page provides a comprehensive list of functions available in the package, organized by category.</p>
-<p>Additionally, the package includes vignettes that provide more detailed information on how to use the functions in the package.</p>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
@@ -90,19 +83,10 @@
 <span></span>
 <span><span class="co"># Replace the placeholders with your API key and base URL</span></span>
 <span><span class="va">api_key</span> <span class="op">&lt;-</span> <span class="st">"YOUR_API_KEY"</span></span>
-<span><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://your_canvas_domain.com/"</span></span>
+<span><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://your_canvas_domain.com"</span></span>
 <span></span>
 <span><span class="co"># Authenticate with the Canvas LMS API</span></span>
-<span><span class="va">canvas</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/canvas_authenticate.html">canvas_authenticate</a></span><span class="op">(</span><span class="va">api_key</span>, <span class="va">base_url</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## Alternatively, you can set system variables</span></span>
-<span></span>
-<span><span class="co"># Set the API key and base URL as environment variables</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>CANVAS_API_KEY <span class="op">=</span> <span class="st">"YOUR_API_KEY"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>CANVAS_BASE_URL <span class="op">=</span> <span class="st">"https://your_canvas_domain.com/"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Authenticate with the Canvas LMS API</span></span>
-<span><span class="va">canvas</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/canvas_authenticate.html">canvas_authenticate</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">canvas</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/canvas_authenticate.html">canvas_authenticate</a></span><span class="op">(</span><span class="va">api_key</span>, <span class="va">base_url</span><span class="op">)</span></span></code></pre></div>
 <p>With the authentication step completed, you can now utilize the various functions provided by the <code>vvcanvas</code> package to interact with the Canvas LMS.</p>
 <p>In order to retrieve a dataframe with all courses you can use the following function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -126,12 +110,6 @@
 </ul>
 </div>
 
-<div class="community">
-<h2 data-toc-skip>Community</h2>
-<ul class="list-unstyled">
-<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
-</ul>
-</div>
 
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
@@ -143,8 +121,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Tomer Iwan <br><small class="roles"> Author, maintainer </small>   </li>
-<li><a href="authors.html">More about authors...</a></li>
+<li>Tomer Iwan <br><small class="roles"> Author, maintainer, copyright holder </small>   </li>
 </ul>
 </div>
 
