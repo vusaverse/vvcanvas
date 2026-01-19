@@ -2,7 +2,9 @@
 
 ## Authors
 
-- **Tomer Iwan**. Author, maintainer.
+- **Hajo Bons**. Author, maintainer.
+
+- **Tomer Iwan**. Author.
 
 - **Niels Smits**. Contributor.
   [](https://orcid.org/0000-0003-3669-9266)
@@ -14,13 +16,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/vusaverse/vvcanvas/blob/main/DESCRIPTION)
 
-Iwan T (2025). *vvcanvas: 'Canvas' LMS API Integration*. R package
-version 0.0.7, <https://github.com/vusaverse/vvcanvas>.
+Bons H, Iwan T (2026). *vvcanvas: 'Canvas' LMS API Integration*. R
+package version 0.0.7, <https://github.com/vusaverse/vvcanvas>.
 
     @Manual{,
       title = {vvcanvas: 'Canvas' LMS API Integration},
-      author = {Tomer Iwan},
-      year = {2025},
+      author = {Hajo Bons and Tomer Iwan},
+      year = {2026},
       note = {R package version 0.0.7},
       url = {https://github.com/vusaverse/vvcanvas},
     }
