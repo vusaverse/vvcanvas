@@ -2,9 +2,14 @@ Package: vvcanvas
 Title: 'Canvas' LMS API Integration
 Version: 0.0.7
 Authors@R: 
-  c(person(given = "Tomer", 
-           family = "Iwan", 
+  c(person(given = "Hajo", 
+           family = "Bons", 
            role = c("aut", "cre"), 
+           email = "h.b.bons@vu.nl"
+           ),
+    person(given = "Tomer", 
+           family = "Iwan", 
+           role = "aut", 
            email = "t.iwan@vu.nl"
            ),
     person(given = "Niels",
